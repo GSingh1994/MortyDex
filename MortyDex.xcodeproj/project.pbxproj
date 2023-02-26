@@ -13,6 +13,8 @@
 		54D27AF529ABF02600C0965E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54D27AF329ABF02600C0965E /* Main.storyboard */; };
 		54D27AF729ABF02600C0965E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54D27AF629ABF02600C0965E /* Assets.xcassets */; };
 		54D27AFA29ABF02600C0965E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54D27AF829ABF02600C0965E /* LaunchScreen.storyboard */; };
+		54D27B0329ABF0BF00C0965E /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 54D27B0229ABF0BF00C0965E /* Apollo */; };
+		54D27B0529ABF15C00C0965E /* R&MSchema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 54D27B0429ABF15C00C0965E /* R&MSchema.graphqls */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,7 @@
 		54D27AF629ABF02600C0965E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54D27AF929ABF02600C0965E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54D27AFB29ABF02600C0965E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54D27B0429ABF15C00C0965E /* R&MSchema.graphqls */ = {isa = PBXFileReference; lastKnownFileType = text; path = "R&MSchema.graphqls"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54D27B0329ABF0BF00C0965E /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +67,7 @@
 				54D27AF629ABF02600C0965E /* Assets.xcassets */,
 				54D27AF829ABF02600C0965E /* LaunchScreen.storyboard */,
 				54D27AFB29ABF02600C0965E /* Info.plist */,
+				54D27B0429ABF15C00C0965E /* R&MSchema.graphqls */,
 			);
 			path = MortyDex;
 			sourceTree = "<group>";
@@ -83,6 +88,9 @@
 			dependencies = (
 			);
 			name = MortyDex;
+			packageProductDependencies = (
+				54D27B0229ABF0BF00C0965E /* Apollo */,
+			);
 			productName = MortyDex;
 			productReference = 54D27AEA29ABF02600C0965E /* MortyDex.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +119,9 @@
 				Base,
 			);
 			mainGroup = 54D27AE129ABF02500C0965E;
+			packageReferences = (
+				54D27B0129ABF0BF00C0965E /* XCRemoteSwiftPackageReference "apollo-ios" */,
+			);
 			productRefGroup = 54D27AEB29ABF02600C0965E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,6 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54D27B0529ABF15C00C0965E /* R&MSchema.graphqls in Resources */,
 				54D27AFA29ABF02600C0965E /* LaunchScreen.storyboard in Resources */,
 				54D27AF729ABF02600C0965E /* Assets.xcassets in Resources */,
 				54D27AF529ABF02600C0965E /* Main.storyboard in Resources */,
@@ -358,6 +370,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		54D27B0129ABF0BF00C0965E /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		54D27B0229ABF0BF00C0965E /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54D27B0129ABF0BF00C0965E /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 54D27AE229ABF02500C0965E /* Project object */;
 }
