@@ -15,6 +15,7 @@
 		54D27AFA29ABF02600C0965E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54D27AF829ABF02600C0965E /* LaunchScreen.storyboard */; };
 		54D27B0329ABF0BF00C0965E /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 54D27B0229ABF0BF00C0965E /* Apollo */; };
 		54D27B0529ABF15C00C0965E /* R&MSchema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 54D27B0429ABF15C00C0965E /* R&MSchema.graphqls */; };
+		54D27B0829ABF6ED00C0965E /* AllCharacters.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 54D27B0729ABF6ED00C0965E /* AllCharacters.graphql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		54D27AF929ABF02600C0965E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54D27AFB29ABF02600C0965E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54D27B0429ABF15C00C0965E /* R&MSchema.graphqls */ = {isa = PBXFileReference; lastKnownFileType = text; path = "R&MSchema.graphqls"; sourceTree = "<group>"; };
+		54D27B0729ABF6ED00C0965E /* AllCharacters.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllCharacters.graphql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		54D27AEC29ABF02600C0965E /* MortyDex */ = {
 			isa = PBXGroup;
 			children = (
+				54D27B0629ABF6BC00C0965E /* Queries */,
 				54D27AED29ABF02600C0965E /* AppDelegate.swift */,
 				54D27AEF29ABF02600C0965E /* SceneDelegate.swift */,
 				54D27AF129ABF02600C0965E /* ViewController.swift */,
@@ -70,6 +73,14 @@
 				54D27B0429ABF15C00C0965E /* R&MSchema.graphqls */,
 			);
 			path = MortyDex;
+			sourceTree = "<group>";
+		};
+		54D27B0629ABF6BC00C0965E /* Queries */ = {
+			isa = PBXGroup;
+			children = (
+				54D27B0729ABF6ED00C0965E /* AllCharacters.graphql */,
+			);
+			path = Queries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 				54D27B0529ABF15C00C0965E /* R&MSchema.graphqls in Resources */,
 				54D27AFA29ABF02600C0965E /* LaunchScreen.storyboard in Resources */,
 				54D27AF729ABF02600C0965E /* Assets.xcassets in Resources */,
+				54D27B0829ABF6ED00C0965E /* AllCharacters.graphql in Resources */,
 				54D27AF529ABF02600C0965E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
