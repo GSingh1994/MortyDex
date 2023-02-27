@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5409E3AD29AD001200E16A01 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409E3AC29AD001200E16A01 /* CharacterCell.swift */; };
 		54D27AEE29ABF02600C0965E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D27AED29ABF02600C0965E /* AppDelegate.swift */; };
 		54D27AF029ABF02600C0965E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D27AEF29ABF02600C0965E /* SceneDelegate.swift */; };
 		54D27AF229ABF02600C0965E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D27AF129ABF02600C0965E /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5409E3AC29AD001200E16A01 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		54D27AEA29ABF02600C0965E /* MortyDex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MortyDex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54D27AED29ABF02600C0965E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54D27AEF29ABF02600C0965E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				54D27AED29ABF02600C0965E /* AppDelegate.swift */,
 				54D27AEF29ABF02600C0965E /* SceneDelegate.swift */,
 				54D27AF129ABF02600C0965E /* ViewController.swift */,
+				5409E3AC29AD001200E16A01 /* CharacterCell.swift */,
 				54D27AF329ABF02600C0965E /* Main.storyboard */,
 				54D27AF629ABF02600C0965E /* Assets.xcassets */,
 				54D27AF829ABF02600C0965E /* LaunchScreen.storyboard */,
@@ -226,6 +229,7 @@
 				54D27B1A29ABF9CD00C0965E /* Characters.graphql.swift in Sources */,
 				54D27B1F29ABF9CD00C0965E /* MortySchema.graphql.swift in Sources */,
 				54D27AF229ABF02600C0965E /* ViewController.swift in Sources */,
+				5409E3AD29AD001200E16A01 /* CharacterCell.swift in Sources */,
 				54D27B1B29ABF9CD00C0965E /* Character.graphql.swift in Sources */,
 				54D27AEE29ABF02600C0965E /* AppDelegate.swift in Sources */,
 				54D27B1929ABF9CD00C0965E /* AllCharactersQuery.graphql.swift in Sources */,
