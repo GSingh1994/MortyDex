@@ -60,8 +60,11 @@ class ViewController: UICollectionViewController {
             if let indexPath = collectionView.indexPathsForSelectedItems {
                 let currentIndex = indexPath[0][1]
                 let VC = segue.destination as! DetailsViewController
+                
                 //pass values
                 VC.characterNameValue = self.allCharacters[currentIndex].name
+                VC.characterImageValue = self.allCharacters[currentIndex].image
+                
             }
         }
     }

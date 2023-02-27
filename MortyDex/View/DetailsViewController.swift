@@ -6,28 +6,43 @@
 //
 
 import UIKit
+import SDWebImage
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var characterNameLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
     
     var characterNameValue: String?
+    var characterImageValue: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        tableView.dataSource = self
+        tableView.dataSource = self
         characterNameLabel.text = characterNameValue
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
     }
-    */
-
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 1 {
+            return 1
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        //Character image cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: [0,0]) as! ImageCell
+        cell.imageCellView.sd_setImage(with: URL(string: characterImageValue!))
+        
+        return cell
+    }
+    
 }
 
