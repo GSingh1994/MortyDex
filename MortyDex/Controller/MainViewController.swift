@@ -25,7 +25,7 @@ class ViewController: UICollectionViewController {
             
             if let charactersData = data.characters?.results {
                 for char in charactersData {
-                    let character = Character(name: (char?.name)!, image: (char?.image)!)
+                    let character = Character(name: char?.name, image: char?.image)
                     self.allCharacters.append(character)
                 }
             }
@@ -46,10 +46,24 @@ class ViewController: UICollectionViewController {
         
         //cell data
         cell.characterName.text = allCharacters[indexPath.item].name
-        cell.characterImage.sd_setImage(with: URL(string: allCharacters[indexPath.item].image))
+        cell.characterImage.sd_setImage(with: URL(string: allCharacters[indexPath.item].image!))
         
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "mainToDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mainToDetails" {
+            if let indexPath = collectionView.indexPathsForSelectedItems {
+                let currentIndex = indexPath[0][1]
+                let VC = segue.destination as! DetailsViewController
+                //pass values
+                VC.characterNameValue = self.allCharacters[currentIndex].name
+            }
+        }
+    }
 }
 

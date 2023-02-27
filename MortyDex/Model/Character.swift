@@ -8,6 +8,6 @@
 import Foundation
 
 struct Character {
-    let name: String
-    let image: String
+    let name: String?
+    let image: String?
 }
