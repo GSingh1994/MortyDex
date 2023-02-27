@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5409E3AD29AD001200E16A01 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409E3AC29AD001200E16A01 /* CharacterCell.swift */; };
+		540DFABC29AD24BB002BD4F4 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 540DFABB29AD24BB002BD4F4 /* SDWebImage */; };
 		549BD07B29AD0C6100DF0C4A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549BD07A29AD0C6100DF0C4A /* Character.swift */; };
 		549BD07D29AD0D0B00DF0C4A /* Character.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 549BD07C29AD0D0B00DF0C4A /* Character.graphql */; };
 		549BD08229AD0DF300DF0C4A /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549BD08129AD0DF300DF0C4A /* Characters.swift */; };
@@ -58,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				540DFABC29AD24BB002BD4F4 /* SDWebImage in Frameworks */,
 				54D27B0329ABF0BF00C0965E /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,6 +200,7 @@
 			name = MortyDex;
 			packageProductDependencies = (
 				54D27B0229ABF0BF00C0965E /* Apollo */,
+				540DFABB29AD24BB002BD4F4 /* SDWebImage */,
 			);
 			productName = MortyDex;
 			productReference = 54D27AEA29ABF02600C0965E /* MortyDex.app */;
@@ -229,6 +232,7 @@
 			mainGroup = 54D27AE129ABF02500C0965E;
 			packageReferences = (
 				54D27B0129ABF0BF00C0965E /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				540DFABA29AD24BB002BD4F4 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 54D27AEB29ABF02600C0965E /* Products */;
 			projectDirPath = "";
@@ -492,6 +496,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		540DFABA29AD24BB002BD4F4 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		54D27B0129ABF0BF00C0965E /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
@@ -503,6 +515,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		540DFABB29AD24BB002BD4F4 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 540DFABA29AD24BB002BD4F4 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		54D27B0229ABF0BF00C0965E /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 54D27B0129ABF0BF00C0965E /* XCRemoteSwiftPackageReference "apollo-ios" */;

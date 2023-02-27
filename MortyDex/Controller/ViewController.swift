@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import Foundation
 import Apollo
+import SDWebImage
 
 class ViewController: UICollectionViewController {
     let apolloClient = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql")!)
@@ -16,6 +16,10 @@ class ViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
+    }
+    
+    func loadData() {
         apolloClient.fetch(query: MortySchema.AllCharactersQuery(page: 1)) { result in
             guard let data = try? result.get().data else { return }
             
@@ -31,7 +35,6 @@ class ViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allCharacters.count
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -43,13 +46,7 @@ class ViewController: UICollectionViewController {
         
         //cell data
         cell.characterName.text = allCharacters[indexPath.item].name
-        
-        let url = NSURL(string: allCharacters[indexPath.item].image)
-        let imagedata = NSData.init(contentsOf: url! as URL)
-        
-        if imagedata != nil {
-            cell.characterImage.image = UIImage(data:imagedata! as Data)
-        }
+        cell.characterImage.sd_setImage(with: URL(string: allCharacters[indexPath.item].image))
         
         return cell
     }
