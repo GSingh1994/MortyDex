@@ -33,6 +33,7 @@
 		54F3B28929ADC37C0074FE0C /* SchemaConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3B28029ADC37C0074FE0C /* SchemaConfiguration.swift */; };
 		54F3B28A29ADC37C0074FE0C /* SchemaMetadata.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3B28129ADC37C0074FE0C /* SchemaMetadata.graphql.swift */; };
 		54F3B28B29ADC37C0074FE0C /* MortySchema.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3B28229ADC37C0074FE0C /* MortySchema.graphql.swift */; };
+		54FF8A8729AE940A002A6D2F /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FF8A8629AE940A002A6D2F /* LocationsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		54F3B28029ADC37C0074FE0C /* SchemaConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemaConfiguration.swift; sourceTree = "<group>"; };
 		54F3B28129ADC37C0074FE0C /* SchemaMetadata.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemaMetadata.graphql.swift; sourceTree = "<group>"; };
 		54F3B28229ADC37C0074FE0C /* MortySchema.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MortySchema.graphql.swift; sourceTree = "<group>"; };
+		54FF8A8629AE940A002A6D2F /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				5406C88429AD5A2900D6E3A2 /* ImageCell.swift */,
 				54AF495F29AD941200B20882 /* InfoCell.swift */,
 				54AF496029AD941200B20882 /* InfoCell.xib */,
+				54FF8A8629AE940A002A6D2F /* LocationsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				54F3B28529ADC37C0074FE0C /* Character.graphql.swift in Sources */,
 				54F3B28329ADC37C0074FE0C /* AllCharactersQuery.graphql.swift in Sources */,
 				54F3B28B29ADC37C0074FE0C /* MortySchema.graphql.swift in Sources */,
+				54FF8A8729AE940A002A6D2F /* LocationsViewController.swift in Sources */,
 				54F3B28A29ADC37C0074FE0C /* SchemaMetadata.graphql.swift in Sources */,
 				54F3B28629ADC37C0074FE0C /* Location.graphql.swift in Sources */,
 				54F3B28429ADC37C0074FE0C /* Characters.graphql.swift in Sources */,
