@@ -25,7 +25,7 @@ class ViewController: UICollectionViewController {
             
             if let charactersData = data.characters?.results {
                 for char in charactersData {
-                    let character = Character(name: char?.name, image: char?.image)
+                    let character = Character(name: char?.name, image: char?.image, info: ["Status": char?.status,"Gender": char?.gender, "Species": char?.species])
                     self.allCharacters.append(character)
                 }
             }
@@ -61,10 +61,8 @@ class ViewController: UICollectionViewController {
                 let currentIndex = indexPath[0][1]
                 let VC = segue.destination as! DetailsViewController
                 
-                //pass values
-                VC.characterNameValue = self.allCharacters[currentIndex].name
-                VC.characterImageValue = self.allCharacters[currentIndex].image
-                
+                //pass selected character
+                VC.currentSelection = self.allCharacters[currentIndex]
             }
         }
     }

@@ -12,15 +12,15 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var characterNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    
-    var characterNameValue: String?
-    var characterImageValue: String?
+    var currentSelection: Character?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        tableView.dataSource = self
+
+        tableView.register(UINib(nibName: "InfoCell", bundle: nil), forCellReuseIdentifier: "infoCell")
+        characterNameLabel.text = currentSelection?.name
         tableView.dataSource = self
-        characterNameLabel.text = characterNameValue
+        tableView.delegate = self //?
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,7 +43,14 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         case 1:
             //Character image cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! ImageCell
-            cell.imageCellView.sd_setImage(with: URL(string: characterImageValue!))
+            cell.imageCellView.sd_setImage(with: URL(string: (currentSelection?.image)!))
+            return cell
+        case 2:
+            //cells of Info section
+            let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfoCell
+
+            cell.infoLeftLabel.text = Array(currentSelection!.info)[indexPath.row].key
+            cell.infoRightLabel.text = Array(currentSelection!.info)[indexPath.row].value
             return cell
         default:
             return UITableViewCell()

@@ -12,8 +12,9 @@
 		540DFABC29AD24BB002BD4F4 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 540DFABB29AD24BB002BD4F4 /* SDWebImage */; };
 		540DFAC229AD2D86002BD4F4 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DFAC129AD2D86002BD4F4 /* DetailsViewController.swift */; };
 		549BD07B29AD0C6100DF0C4A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549BD07A29AD0C6100DF0C4A /* Character.swift */; };
-		549BD07D29AD0D0B00DF0C4A /* Character.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 549BD07C29AD0D0B00DF0C4A /* Character.graphql */; };
 		549BD08229AD0DF300DF0C4A /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549BD08129AD0DF300DF0C4A /* Characters.swift */; };
+		54AF496129AD941200B20882 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AF495F29AD941200B20882 /* InfoCell.swift */; };
+		54AF496229AD941200B20882 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AF496029AD941200B20882 /* InfoCell.xib */; };
 		54D27AEE29ABF02600C0965E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D27AED29ABF02600C0965E /* AppDelegate.swift */; };
 		54D27AF029ABF02600C0965E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D27AEF29ABF02600C0965E /* SceneDelegate.swift */; };
 		54D27AF229ABF02600C0965E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D27AF129ABF02600C0965E /* MainViewController.swift */; };
@@ -37,8 +38,9 @@
 		5409E3AC29AD001200E16A01 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		540DFAC129AD2D86002BD4F4 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = ../View/DetailsViewController.swift; sourceTree = "<group>"; };
 		549BD07A29AD0C6100DF0C4A /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		549BD07C29AD0D0B00DF0C4A /* Character.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Character.graphql; sourceTree = "<group>"; };
 		549BD08129AD0DF300DF0C4A /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
+		54AF495F29AD941200B20882 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		54AF496029AD941200B20882 /* InfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
 		54D27AEA29ABF02600C0965E /* MortyDex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MortyDex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54D27AED29ABF02600C0965E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54D27AEF29ABF02600C0965E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,8 +87,10 @@
 			children = (
 				54D27AF829ABF02600C0965E /* LaunchScreen.storyboard */,
 				54D27AF329ABF02600C0965E /* Main.storyboard */,
-				5406C88429AD5A2900D6E3A2 /* ImageCell.swift */,
 				5409E3AC29AD001200E16A01 /* CharacterCell.swift */,
+				5406C88429AD5A2900D6E3A2 /* ImageCell.swift */,
+				54AF495F29AD941200B20882 /* InfoCell.swift */,
+				54AF496029AD941200B20882 /* InfoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -137,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				54D27B0729ABF6ED00C0965E /* AllCharacters.graphql */,
-				549BD07C29AD0D0B00DF0C4A /* Character.graphql */,
 			);
 			path = Queries;
 			sourceTree = "<group>";
@@ -255,7 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54D27B0529ABF15C00C0965E /* R&MSchema.graphqls in Resources */,
-				549BD07D29AD0D0B00DF0C4A /* Character.graphql in Resources */,
+				54AF496229AD941200B20882 /* InfoCell.xib in Resources */,
 				54D27AFA29ABF02600C0965E /* LaunchScreen.storyboard in Resources */,
 				54D27AF729ABF02600C0965E /* Assets.xcassets in Resources */,
 				54D27B0829ABF6ED00C0965E /* AllCharacters.graphql in Resources */,
@@ -275,6 +278,7 @@
 				54D27AF229ABF02600C0965E /* MainViewController.swift in Sources */,
 				549BD07B29AD0C6100DF0C4A /* Character.swift in Sources */,
 				549BD08229AD0DF300DF0C4A /* Characters.swift in Sources */,
+				54AF496129AD941200B20882 /* InfoCell.swift in Sources */,
 				5409E3AD29AD001200E16A01 /* CharacterCell.swift in Sources */,
 				54D27B1B29ABF9CD00C0965E /* Character.graphql.swift in Sources */,
 				54D27AEE29ABF02600C0965E /* AppDelegate.swift in Sources */,

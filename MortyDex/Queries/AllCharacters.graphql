@@ -3,6 +3,9 @@ query AllCharacters($page: Int) {
     results {
       name
       image
+      status
+      species
+      gender
     }
   }
 }

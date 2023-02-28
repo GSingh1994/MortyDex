@@ -16,6 +16,8 @@ public extension MortySchema {
               __typename
               name
               image
+              status
+              species
               gender
             }
           }
@@ -68,6 +70,8 @@ public extension MortySchema {
           public static var __selections: [ApolloAPI.Selection] { [
             .field("name", String?.self),
             .field("image", String?.self),
+            .field("status", String?.self),
+            .field("species", String?.self),
             .field("gender", String?.self),
           ] }
 
@@ -76,6 +80,10 @@ public extension MortySchema {
           /// Link to the character's image.
           /// All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.
           public var image: String? { __data["image"] }
+          /// The status of the character ('Alive', 'Dead' or 'unknown').
+          public var status: String? { __data["status"] }
+          /// The species of the character.
+          public var species: String? { __data["species"] }
           /// The gender of the character ('Female', 'Male', 'Genderless' or 'unknown').
           public var gender: String? { __data["gender"] }
         }

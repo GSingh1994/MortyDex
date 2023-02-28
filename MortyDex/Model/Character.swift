@@ -10,4 +10,5 @@ import Foundation
 struct Character {
     let name: String?
     let image: String?
+    let info: [String?: String?]
 }
