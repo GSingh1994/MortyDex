@@ -18,7 +18,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.dataSource = self
+        //        tableView.dataSource = self
         tableView.dataSource = self
         characterNameLabel.text = characterNameValue
     }
@@ -27,21 +27,41 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return 3
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 1 {
+        switch section {
+        case 1:
             return 1
+        case 2:
+            return 3
+        default:
+            return 0
         }
-        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 1:
+            //Character image cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! ImageCell
+            cell.imageCellView.sd_setImage(with: URL(string: characterImageValue!))
+            return cell
+        default:
+            return UITableViewCell()
+        }
         
-        //Character image cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: [0,0]) as! ImageCell
-        cell.imageCellView.sd_setImage(with: URL(string: characterImageValue!))
+    }
+    
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 1:
+            return "APPEARANCE"
+        case 2:
+            return "INFO"
+        default:
+            return ""
+        }
         
-        return cell
     }
     
 }
