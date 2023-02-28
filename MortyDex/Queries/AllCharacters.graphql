@@ -12,6 +12,11 @@ query AllCharacters($page: Int) {
       location {
         name
       }
+      episode {
+        episode
+        name
+        air_date
+      }
     }
   }
 }

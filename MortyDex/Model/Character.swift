@@ -10,6 +10,13 @@ import Foundation
 struct Character {
     let name: String?
     let image: String?
-    let info: [String?: String?]
-    let location: [String?: String?]
+    let info: [String: String?]
+    let location: [String: String?]
+    let episodes: [Episode]
+}
+
+struct Episode {
+    let name: String?
+    let info: String?
+    let date: String?
 }

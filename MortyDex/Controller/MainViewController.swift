@@ -13,6 +13,7 @@ class ViewController: UICollectionViewController {
     let apolloClient = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql")!)
     
     var allCharacters: [Character] = []
+    var characterEpisodes: [Episode] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +26,18 @@ class ViewController: UICollectionViewController {
             
             if let charactersData = data.characters?.results {
                 for char in charactersData {
-                    let character = Character(name: char?.name, image: char?.image, info: ["Status": char?.status,"Gender": char?.gender, "Species": char?.species], location: ["Origin": char?.origin?.name, "Last seen": char?.location?.name])
+        
+                    //get episodes
+                    for e in char!.episode {
+                        let episode = Episode(name: e?.name, info: e?.episode, date: e?.air_date)
+                        self.characterEpisodes.append(episode)
+                    }
+                    
+                    //fill-out struct instance
+                    let character = Character(name: char?.name, image: char?.image, info: ["Status": char?.status,"Gender": char?.gender, "Species": char?.species], location: ["Origin": char?.origin?.name, "Last seen": char?.location?.name], episodes: self.characterEpisodes)
+                    
                     self.allCharacters.append(character)
+                    self.characterEpisodes = []
                 }
             }
             self.collectionView.reloadData()

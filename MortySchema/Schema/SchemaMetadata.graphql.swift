@@ -35,6 +35,7 @@ public extension MortySchema {
       case "Characters": return MortySchema.Objects.Characters
       case "Character": return MortySchema.Objects.Character
       case "Location": return MortySchema.Objects.Location
+      case "Episode": return MortySchema.Objects.Episode
       default: return nil
       }
     }

@@ -24,7 +24,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,6 +35,8 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
             return 3
         case 3:
             return 2
+        case 4:
+            return (currentSelection?.episodes.count)!
         default:
             return 0
         }
@@ -50,16 +52,25 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
             return cell
             
         case 2:
-            //cells of Info section
+            //cell of Info section
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfoCell
             cell.infoLeftLabel.text = Array(currentSelection!.info)[indexPath.row].key
             cell.infoRightLabel.text = Array(currentSelection!.info)[indexPath.row].value
             return cell
         case 3:
-            //cells of Info section
+            //cell of location section
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfoCell
             cell.infoLeftLabel.text = Array(currentSelection!.location)[indexPath.row].key
             cell.infoRightLabel.text = Array(currentSelection!.location)[indexPath.row].value
+            return cell
+        case 4:
+            //cell of episode section
+            let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath)
+            let episodeName = currentSelection?.episodes[indexPath.row].name
+            let episodeInfo = currentSelection?.episodes[indexPath.row].info
+            let episodeDate = currentSelection?.episodes[indexPath.row].date
+            cell.textLabel?.text = episodeInfo! + " " + episodeName!
+            cell.detailTextLabel?.text = episodeDate
             return cell
         default:
             return UITableViewCell()
@@ -75,10 +86,11 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
             return "INFO"
         case 3:
             return "LOCATION"
+        case 4:
+            return "EPISODE"
         default:
             return ""
         }
-        
     }
     
 }

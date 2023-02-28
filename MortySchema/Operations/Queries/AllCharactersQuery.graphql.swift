@@ -27,6 +27,12 @@ public extension MortySchema {
                 __typename
                 name
               }
+              episode {
+                __typename
+                episode
+                name
+                air_date
+              }
             }
           }
         }
@@ -83,6 +89,7 @@ public extension MortySchema {
             .field("gender", String?.self),
             .field("origin", Origin?.self),
             .field("location", Location?.self),
+            .field("episode", [Episode?].self),
           ] }
 
           /// The name of the character.
@@ -100,6 +107,8 @@ public extension MortySchema {
           public var origin: Origin? { __data["origin"] }
           /// The character's last known location
           public var location: Location? { __data["location"] }
+          /// Episodes in which this character appeared.
+          public var episode: [Episode?] { __data["episode"] }
 
           /// Characters.Result.Origin
           ///
@@ -131,6 +140,28 @@ public extension MortySchema {
 
             /// The name of the location.
             public var name: String? { __data["name"] }
+          }
+
+          /// Characters.Result.Episode
+          ///
+          /// Parent Type: `Episode`
+          public struct Episode: MortySchema.SelectionSet {
+            public let __data: DataDict
+            public init(data: DataDict) { __data = data }
+
+            public static var __parentType: ApolloAPI.ParentType { MortySchema.Objects.Episode }
+            public static var __selections: [ApolloAPI.Selection] { [
+              .field("episode", String?.self),
+              .field("name", String?.self),
+              .field("air_date", String?.self),
+            ] }
+
+            /// The code of the episode.
+            public var episode: String? { __data["episode"] }
+            /// The name of the episode.
+            public var name: String? { __data["name"] }
+            /// The air date of the episode.
+            public var air_date: String? { __data["air_date"] }
           }
         }
       }
