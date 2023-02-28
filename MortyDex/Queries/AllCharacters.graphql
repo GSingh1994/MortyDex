@@ -6,6 +6,12 @@ query AllCharacters($page: Int) {
       status
       species
       gender
+      origin {
+        name
+      }
+      location {
+        name
+      }
     }
   }
 }

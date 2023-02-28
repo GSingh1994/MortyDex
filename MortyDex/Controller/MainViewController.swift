@@ -25,7 +25,7 @@ class ViewController: UICollectionViewController {
             
             if let charactersData = data.characters?.results {
                 for char in charactersData {
-                    let character = Character(name: char?.name, image: char?.image, info: ["Status": char?.status,"Gender": char?.gender, "Species": char?.species])
+                    let character = Character(name: char?.name, image: char?.image, info: ["Status": char?.status,"Gender": char?.gender, "Species": char?.species], location: ["Origin": char?.origin?.name, "Last seen": char?.location?.name])
                     self.allCharacters.append(character)
                 }
             }

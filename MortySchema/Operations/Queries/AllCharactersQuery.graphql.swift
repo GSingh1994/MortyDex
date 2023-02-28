@@ -19,6 +19,14 @@ public extension MortySchema {
               status
               species
               gender
+              origin {
+                __typename
+                name
+              }
+              location {
+                __typename
+                name
+              }
             }
           }
         }
@@ -73,6 +81,8 @@ public extension MortySchema {
             .field("status", String?.self),
             .field("species", String?.self),
             .field("gender", String?.self),
+            .field("origin", Origin?.self),
+            .field("location", Location?.self),
           ] }
 
           /// The name of the character.
@@ -86,6 +96,42 @@ public extension MortySchema {
           public var species: String? { __data["species"] }
           /// The gender of the character ('Female', 'Male', 'Genderless' or 'unknown').
           public var gender: String? { __data["gender"] }
+          /// The character's origin location
+          public var origin: Origin? { __data["origin"] }
+          /// The character's last known location
+          public var location: Location? { __data["location"] }
+
+          /// Characters.Result.Origin
+          ///
+          /// Parent Type: `Location`
+          public struct Origin: MortySchema.SelectionSet {
+            public let __data: DataDict
+            public init(data: DataDict) { __data = data }
+
+            public static var __parentType: ApolloAPI.ParentType { MortySchema.Objects.Location }
+            public static var __selections: [ApolloAPI.Selection] { [
+              .field("name", String?.self),
+            ] }
+
+            /// The name of the location.
+            public var name: String? { __data["name"] }
+          }
+
+          /// Characters.Result.Location
+          ///
+          /// Parent Type: `Location`
+          public struct Location: MortySchema.SelectionSet {
+            public let __data: DataDict
+            public init(data: DataDict) { __data = data }
+
+            public static var __parentType: ApolloAPI.ParentType { MortySchema.Objects.Location }
+            public static var __selections: [ApolloAPI.Selection] { [
+              .field("name", String?.self),
+            ] }
+
+            /// The name of the location.
+            public var name: String? { __data["name"] }
+          }
         }
       }
     }
