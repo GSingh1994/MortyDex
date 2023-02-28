@@ -32,9 +32,10 @@ public extension MortySchema {
     public static func objectType(forTypename typename: String) -> Object? {
       switch typename {
       case "Query": return MortySchema.Objects.Query
-      case "Characters": return MortySchema.Objects.Characters
-      case "Character": return MortySchema.Objects.Character
+      case "Locations": return MortySchema.Objects.Locations
       case "Location": return MortySchema.Objects.Location
+      case "Character": return MortySchema.Objects.Character
+      case "Characters": return MortySchema.Objects.Characters
       case "Episode": return MortySchema.Objects.Episode
       default: return nil
       }
