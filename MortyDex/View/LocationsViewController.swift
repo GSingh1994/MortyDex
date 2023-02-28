@@ -9,6 +9,8 @@ import UIKit
 
 class LocationsViewController: UIViewController {
 
+    var allCharacters: [Character] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

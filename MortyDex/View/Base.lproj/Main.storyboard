@@ -186,7 +186,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="hfM-nc-SOe">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="sNH-DW-eRh" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="sNH-DW-eRh" customClass="TabBarController" customModule="MortyDex" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Cy3-xJ-jHM">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

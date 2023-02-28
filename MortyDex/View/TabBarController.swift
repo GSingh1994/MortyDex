@@ -6,12 +6,43 @@
 //
 
 import UIKit
+import Apollo
 
 class TabBarController: UITabBarController {
+    let apolloClient = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql")!)
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        let charactersNavController = self.viewControllers![1] as! UINavigationController
+        let LocationsVC = charactersNavController.topViewController as! LocationsViewController
+        
+        loadData()
+    }
+    
+    func loadData() {
+        apolloClient.fetch(query: MortySchema.AllCharactersQuery(page: 1)) { result in
+            guard let data = try? result.get().data else { return }
+            
+//            if let charactersData = data.characters?.results {
+//                for char in charactersData {
+//        
+//                    //get episodes
+//                    for e in char!.episode {
+//                        let episode = Episode(name: e?.name, info: e?.episode, date: e?.air_date)
+//                        self.characterEpisodes.append(episode)
+//                    }
+//                    
+//                    //fill-out struct instance
+//                    let character = Character(name: char?.name, image: char?.image, info: ["Status": char?.status,"Gender": char?.gender, "Species": char?.species], location: ["Origin": char?.origin?.name, "Last seen": char?.location?.name], episodes: self.characterEpisodes)
+//                    
+//                    self.allCharacters.append(character)
+//                    self.characterEpisodes = []
+//                }
+//            }
+//            self.collectionView.reloadData()
+        }
     }
     
 
