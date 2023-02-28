@@ -10,6 +10,7 @@ import UIKit
 class LocationDetailsViewController: UITableViewController {
     
     var currentSelection: Location?
+    var infoSection: [String?: String?] = [nil : nil]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +18,7 @@ class LocationDetailsViewController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         title = currentSelection?.name
+        infoSection = ["Type": currentSelection?.type, "Dimension": currentSelection?.dimension]
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,15 +33,9 @@ class LocationDetailsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "locationsDetailCell", for: indexPath)
-            let type = currentSelection?.type
-            let dimension = currentSelection?.dimension
-            
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfoCell
-//            cell.infoLeftLabel.text = type
-//            cell.infoRightLabel.text = dimension
-            cell.textLabel?.text = type
-            cell.detailTextLabel?.text = dimension
+            let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfoCell
+            cell.infoLeftLabel.text = Array(infoSection)[indexPath.row].key
+            cell.infoRightLabel.text = Array(infoSection)[indexPath.row].value
             return cell
         default:
             return UITableViewCell()
