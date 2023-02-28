@@ -9,7 +9,6 @@ import UIKit
 import SDWebImage
 
 class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var characterNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var currentSelection: Character?
@@ -18,7 +17,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
 
         tableView.register(UINib(nibName: "InfoCell", bundle: nil), forCellReuseIdentifier: "infoCell")
-        characterNameLabel.text = currentSelection?.name
+        self.title = currentSelection?.name
         tableView.dataSource = self
         tableView.delegate = self //?
     }
