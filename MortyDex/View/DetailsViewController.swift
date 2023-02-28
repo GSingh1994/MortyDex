@@ -28,13 +28,13 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 1:
+        case 0:
             return 1
-        case 2:
+        case 1:
             return 3
-        case 3:
+        case 2:
             return 2
-        case 4:
+        case 3:
             return (currentSelection?.episodes.count)!
         default:
             return 0
@@ -44,25 +44,25 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         switch indexPath.section {
-        case 1:
+        case 0:
             //Character image cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! ImageCell
             cell.imageCellView.sd_setImage(with: URL(string: (currentSelection?.image)!))
             return cell
             
-        case 2:
+        case 1:
             //cell of Info section
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfoCell
             cell.infoLeftLabel.text = Array(currentSelection!.info)[indexPath.row].key
             cell.infoRightLabel.text = Array(currentSelection!.info)[indexPath.row].value
             return cell
-        case 3:
+        case 2:
             //cell of location section
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfoCell
             cell.infoLeftLabel.text = Array(currentSelection!.location)[indexPath.row].key
             cell.infoRightLabel.text = Array(currentSelection!.location)[indexPath.row].value
             return cell
-        case 4:
+        case 3:
             //cell of episode section
             let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath)
             let episodeName = currentSelection?.episodes[indexPath.row].name
@@ -79,13 +79,13 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-        case 1:
+        case 0:
             return "APPEARANCE"
-        case 2:
+        case 1:
             return "INFO"
-        case 3:
+        case 2:
             return "LOCATION"
-        case 4:
+        case 3:
             return "EPISODE"
         default:
             return ""
