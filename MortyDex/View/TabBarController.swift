@@ -45,7 +45,7 @@ class TabBarController: UITabBarController {
             }
             //send character data to MainVC
             let nav = self.viewControllers![0] as! UINavigationController
-            let MainVC = nav.topViewController as! ViewController
+            let MainVC = nav.topViewController as! MainViewController
             MainVC.allCharacters = self.allCharacters
             MainVC.characterEpisodes = self.characterEpisodes
             MainVC.collectionView.reloadData()

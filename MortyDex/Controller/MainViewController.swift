@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class ViewController: UICollectionViewController {
+class MainViewController: UICollectionViewController {
     var allCharacters: [Character] = []
     var characterEpisodes: [Episode] = []
     
