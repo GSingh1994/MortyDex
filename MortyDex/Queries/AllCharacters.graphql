@@ -4,21 +4,6 @@ query AllCharacters($page: Int) {
       id
       name
       image
-      status
-      species
-      gender
-      origin {
-        name
-      }
-      location {
-        name
-      }
-      episode {
-        id
-        episode
-        name
-        air_date
-      }
     }
   }
 }

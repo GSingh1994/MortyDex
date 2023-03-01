@@ -4,15 +4,19 @@
 @_exported import ApolloAPI
 
 public extension MortySchema {
-  class AllCharactersQuery: GraphQLQuery {
-    public static let operationName: String = "AllCharacters"
+  class EpisodeQuery: GraphQLQuery {
+    public static let operationName: String = "Episode"
     public static let document: ApolloAPI.DocumentType = .notPersisted(
       definition: .init(
         #"""
-        query AllCharacters($page: Int) {
-          characters(page: $page) {
+        query Episode($episodeId: ID!) {
+          episode(id: $episodeId) {
             __typename
-            results {
+            id
+            name
+            episode
+            air_date
+            characters {
               __typename
               id
               name
@@ -23,13 +27,13 @@ public extension MortySchema {
         """#
       ))
 
-    public var page: GraphQLNullable<Int>
+    public var episodeId: ID
 
-    public init(page: GraphQLNullable<Int>) {
-      self.page = page
+    public init(episodeId: ID) {
+      self.episodeId = episodeId
     }
 
-    public var __variables: Variables? { ["page": page] }
+    public var __variables: Variables? { ["episodeId": episodeId] }
 
     public struct Data: MortySchema.SelectionSet {
       public let __data: DataDict
@@ -37,30 +41,43 @@ public extension MortySchema {
 
       public static var __parentType: ApolloAPI.ParentType { MortySchema.Objects.Query }
       public static var __selections: [ApolloAPI.Selection] { [
-        .field("characters", Characters?.self, arguments: ["page": .variable("page")]),
+        .field("episode", Episode?.self, arguments: ["id": .variable("episodeId")]),
       ] }
 
-      /// Get the list of all characters
-      public var characters: Characters? { __data["characters"] }
+      /// Get a specific episode by ID
+      public var episode: Episode? { __data["episode"] }
 
-      /// Characters
+      /// Episode
       ///
-      /// Parent Type: `Characters`
-      public struct Characters: MortySchema.SelectionSet {
+      /// Parent Type: `Episode`
+      public struct Episode: MortySchema.SelectionSet {
         public let __data: DataDict
         public init(data: DataDict) { __data = data }
 
-        public static var __parentType: ApolloAPI.ParentType { MortySchema.Objects.Characters }
+        public static var __parentType: ApolloAPI.ParentType { MortySchema.Objects.Episode }
         public static var __selections: [ApolloAPI.Selection] { [
-          .field("results", [Result?]?.self),
+          .field("id", MortySchema.ID?.self),
+          .field("name", String?.self),
+          .field("episode", String?.self),
+          .field("air_date", String?.self),
+          .field("characters", [Character?].self),
         ] }
 
-        public var results: [Result?]? { __data["results"] }
+        /// The id of the episode.
+        public var id: MortySchema.ID? { __data["id"] }
+        /// The name of the episode.
+        public var name: String? { __data["name"] }
+        /// The code of the episode.
+        public var episode: String? { __data["episode"] }
+        /// The air date of the episode.
+        public var air_date: String? { __data["air_date"] }
+        /// List of characters who have been seen in the episode.
+        public var characters: [Character?] { __data["characters"] }
 
-        /// Characters.Result
+        /// Episode.Character
         ///
         /// Parent Type: `Character`
-        public struct Result: MortySchema.SelectionSet {
+        public struct Character: MortySchema.SelectionSet {
           public let __data: DataDict
           public init(data: DataDict) { __data = data }
 
