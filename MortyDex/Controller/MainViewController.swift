@@ -6,43 +6,15 @@
 //
 
 import UIKit
-import Apollo
 import SDWebImage
 
 class ViewController: UICollectionViewController {
-    let apolloClient = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql")!)
-    
     var allCharacters: [Character] = []
     var characterEpisodes: [Episode] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Characters"
-        loadData()
-    }
-    
-    func loadData() {
-        apolloClient.fetch(query: MortySchema.AllCharactersQuery(page: 1)) { result in
-            guard let data = try? result.get().data else { return }
-            
-            if let charactersData = data.characters?.results {
-                for char in charactersData {
-        
-                    //get episodes
-                    for e in char!.episode {
-                        let episode = Episode(name: e?.name, info: e?.episode, date: e?.air_date)
-                        self.characterEpisodes.append(episode)
-                    }
-                    
-                    //fill-out struct instance
-                    let character = Character(name: char?.name, image: char?.image, info: ["Status": char?.status,"Gender": char?.gender, "Species": char?.species], location: ["Origin": char?.origin?.name, "Last seen": char?.location?.name], episodes: self.characterEpisodes)
-                    
-                    self.allCharacters.append(character)
-                    self.characterEpisodes = []
-                }
-            }
-            self.collectionView.reloadData()
-        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

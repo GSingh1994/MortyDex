@@ -9,17 +9,51 @@ import UIKit
 import Apollo
 
 class TabBarController: UITabBarController {
-    
     let apolloClient = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql")!)
+    
+    var allCharacters: [Character] = []
+    var characterEpisodes: [Episode] = []
+
     var allLocations: [Location] = []
     var locationResidents: [Resident] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
+        loadCharacters()
+        loadLocations()
     }
     
-    func loadData() {
+    func loadCharacters() {
+        apolloClient.fetch(query: MortySchema.AllCharactersQuery(page: 1)) { result in
+            guard let data = try? result.get().data else { return }
+            
+            if let charactersData = data.characters?.results {
+                for char in charactersData {
+        
+                    //get episodes
+                    for e in char!.episode {
+                        let episode = Episode(name: e?.name, info: e?.episode, date: e?.air_date)
+                        self.characterEpisodes.append(episode)
+                    }
+                    
+                    //fill-out struct instance
+                    let character = Character(name: char?.name, image: char?.image, info: ["Status": char?.status,"Gender": char?.gender, "Species": char?.species], location: ["Origin": char?.origin?.name, "Last seen": char?.location?.name], episodes: self.characterEpisodes)
+                    
+                    self.allCharacters.append(character)
+                    self.characterEpisodes = []
+                }
+            }
+            //send character data to MainVC
+            let nav = self.viewControllers![0] as! UINavigationController
+            let MainVC = nav.topViewController as! ViewController
+            MainVC.allCharacters = self.allCharacters
+            MainVC.characterEpisodes = self.characterEpisodes
+            MainVC.collectionView.reloadData()
+        }
+        
+    }
+    
+    func loadLocations() {
         apolloClient.fetch(query: MortySchema.AllLocationsQuery(page: 1)) { result in
             guard let data = try? result.get().data else { return }
             
@@ -40,8 +74,8 @@ class TabBarController: UITabBarController {
             }
             
             //send location data to locationVC
-            let charactersNavController = self.viewControllers![1] as! UINavigationController
-            let LocationsVC = charactersNavController.topViewController as! LocationsViewController
+            let nav = self.viewControllers![1] as! UINavigationController
+            let LocationsVC = nav.topViewController as! LocationsViewController
             LocationsVC.allLocations = self.allLocations
         }
     }
