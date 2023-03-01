@@ -100,4 +100,19 @@ class EpisodeDetailsViewController: UITableViewController {
             return ""
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "episodeToCharacter", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "episodeToCharacter" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let VC = segue.destination as! DetailsViewController
+                
+                //pass selected character ID
+                VC.character.id = self.episode.characters[indexPath.row].id
+            }
+        }
+    }
 }
