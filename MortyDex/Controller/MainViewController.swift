@@ -43,10 +43,10 @@ class MainViewController: UICollectionViewController {
         if segue.identifier == "mainToDetails" {
             if let indexPath = collectionView.indexPathsForSelectedItems {
                 let currentIndex = indexPath[0][1]
-                let VC = segue.destination as! DetailsViewController
+                //                let VC = segue.destination as! DetailsViewController
                 
                 //pass selected character
-                VC.currentSelection = self.allCharacters[currentIndex]
+                //                VC.currentSelection = self.allCharacters[currentIndex]
             }
         }
     }

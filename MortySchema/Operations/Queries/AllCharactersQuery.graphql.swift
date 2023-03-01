@@ -14,6 +14,7 @@ public extension MortySchema {
             __typename
             results {
               __typename
+              id
               name
               image
               status
@@ -29,6 +30,7 @@ public extension MortySchema {
               }
               episode {
                 __typename
+                id
                 episode
                 name
                 air_date
@@ -82,6 +84,7 @@ public extension MortySchema {
 
           public static var __parentType: ApolloAPI.ParentType { MortySchema.Objects.Character }
           public static var __selections: [ApolloAPI.Selection] { [
+            .field("id", MortySchema.ID?.self),
             .field("name", String?.self),
             .field("image", String?.self),
             .field("status", String?.self),
@@ -92,6 +95,8 @@ public extension MortySchema {
             .field("episode", [Episode?].self),
           ] }
 
+          /// The id of the character.
+          public var id: MortySchema.ID? { __data["id"] }
           /// The name of the character.
           public var name: String? { __data["name"] }
           /// Link to the character's image.
@@ -151,11 +156,14 @@ public extension MortySchema {
 
             public static var __parentType: ApolloAPI.ParentType { MortySchema.Objects.Episode }
             public static var __selections: [ApolloAPI.Selection] { [
+              .field("id", MortySchema.ID?.self),
               .field("episode", String?.self),
               .field("name", String?.self),
               .field("air_date", String?.self),
             ] }
 
+            /// The id of the episode.
+            public var id: MortySchema.ID? { __data["id"] }
             /// The code of the episode.
             public var episode: String? { __data["episode"] }
             /// The name of the episode.

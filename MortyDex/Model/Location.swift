@@ -7,14 +7,9 @@
 
 import Foundation
 
-struct Location {
-    let name: String?
-    let type: String?
-    let dimension: String?
-    let resident: [Resident]
-}
-
-struct Resident {
-    let name: String?
-    let image: String?
+class Location {
+    let id: String? = nil
+    let name: String? = nil
+    let type: String? = nil
+    let dimension: String? = nil
 }

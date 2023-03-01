@@ -11,6 +11,9 @@
 		5409E3AD29AD001200E16A01 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409E3AC29AD001200E16A01 /* CharacterCell.swift */; };
 		540DFABC29AD24BB002BD4F4 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 540DFABB29AD24BB002BD4F4 /* SDWebImage */; };
 		540DFAC229AD2D86002BD4F4 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DFAC129AD2D86002BD4F4 /* DetailsViewController.swift */; };
+		540F64AA29AFD12D000CA2F8 /* CharacterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540F64A929AFD12D000CA2F8 /* CharacterDetail.swift */; };
+		540F64AC29AFD263000CA2F8 /* EpisodeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540F64AB29AFD263000CA2F8 /* EpisodeDetail.swift */; };
+		540F64AE29AFD2BA000CA2F8 /* LocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540F64AD29AFD2BA000CA2F8 /* LocationDetail.swift */; };
 		5414F2D829AF9E570048BE2F /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5414F2D729AF9E570048BE2F /* EpisodesViewController.swift */; };
 		5414F2DA29AFA0000048BE2F /* AllEpisodes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 5414F2D929AFA0000048BE2F /* AllEpisodes.graphql */; };
 		5414F2ED29AFA0AB0048BE2F /* AllEpisodesQuery.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5414F2DE29AFA0AB0048BE2F /* AllEpisodesQuery.graphql.swift */; };
@@ -53,6 +56,9 @@
 		5406C88429AD5A2900D6E3A2 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		5409E3AC29AD001200E16A01 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		540DFAC129AD2D86002BD4F4 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = ../View/DetailsViewController.swift; sourceTree = "<group>"; };
+		540F64A929AFD12D000CA2F8 /* CharacterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetail.swift; sourceTree = "<group>"; };
+		540F64AB29AFD263000CA2F8 /* EpisodeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetail.swift; sourceTree = "<group>"; };
+		540F64AD29AFD2BA000CA2F8 /* LocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetail.swift; sourceTree = "<group>"; };
 		5414F2D729AF9E570048BE2F /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
 		5414F2D929AFA0000048BE2F /* AllEpisodes.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllEpisodes.graphql; sourceTree = "<group>"; };
 		5414F2DE29AFA0AB0048BE2F /* AllEpisodesQuery.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllEpisodesQuery.graphql.swift; sourceTree = "<group>"; };
@@ -161,8 +167,11 @@
 			isa = PBXGroup;
 			children = (
 				549BD07A29AD0C6100DF0C4A /* Character.swift */,
-				54FF8AC229AE9C13002A6D2F /* Location.swift */,
+				540F64A929AFD12D000CA2F8 /* CharacterDetail.swift */,
 				5414F2FA29AFA2D30048BE2F /* Episode.swift */,
+				540F64AB29AFD263000CA2F8 /* EpisodeDetail.swift */,
+				54FF8AC229AE9C13002A6D2F /* Location.swift */,
+				540F64AD29AFD2BA000CA2F8 /* LocationDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -336,6 +345,7 @@
 				5414F2F229AFA0AB0048BE2F /* Location.graphql.swift in Sources */,
 				54AF496129AD941200B20882 /* InfoCell.swift in Sources */,
 				5414F2FB29AFA2D30048BE2F /* Episode.swift in Sources */,
+				540F64AA29AFD12D000CA2F8 /* CharacterDetail.swift in Sources */,
 				5409E3AD29AD001200E16A01 /* CharacterCell.swift in Sources */,
 				54D27AEE29ABF02600C0965E /* AppDelegate.swift in Sources */,
 				54F6C73529AEABC700B070CD /* LocationDetailsViewController.swift in Sources */,
@@ -343,12 +353,14 @@
 				54FF8AC329AE9C13002A6D2F /* Location.swift in Sources */,
 				5414F2F429AFA0AB0048BE2F /* Episode.graphql.swift in Sources */,
 				54D27AF029ABF02600C0965E /* SceneDelegate.swift in Sources */,
+				540F64AC29AFD263000CA2F8 /* EpisodeDetail.swift in Sources */,
 				540DFAC229AD2D86002BD4F4 /* DetailsViewController.swift in Sources */,
 				5414F2FF29AFA9C50048BE2F /* EpisodeDetailsViewController.swift in Sources */,
 				5414F2D829AF9E570048BE2F /* EpisodesViewController.swift in Sources */,
 				5414F2F329AFA0AB0048BE2F /* Query.graphql.swift in Sources */,
 				54FF8A8729AE940A002A6D2F /* LocationsViewController.swift in Sources */,
 				5414F2F129AFA0AB0048BE2F /* Character.graphql.swift in Sources */,
+				540F64AE29AFD2BA000CA2F8 /* LocationDetail.swift in Sources */,
 				54FF8A8929AE9655002A6D2F /* TabBarController.swift in Sources */,
 				5414F2EF29AFA0AB0048BE2F /* AllLocationsQuery.graphql.swift in Sources */,
 				5406C88529AD5A2900D6E3A2 /* ImageCell.swift in Sources */,
