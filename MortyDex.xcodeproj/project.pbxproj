@@ -25,6 +25,8 @@
 		54D27B0529ABF15C00C0965E /* R&MSchema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 54D27B0429ABF15C00C0965E /* R&MSchema.graphqls */; };
 		54D27B0829ABF6ED00C0965E /* AllCharacters.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 54D27B0729ABF6ED00C0965E /* AllCharacters.graphql */; };
 		54F6C73529AEABC700B070CD /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F6C73429AEABC700B070CD /* LocationDetailsViewController.swift */; };
+		54F6C73C29AEDDAE00B070CD /* AvatarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F6C73A29AEDDAE00B070CD /* AvatarViewCell.swift */; };
+		54F6C73D29AEDDAE00B070CD /* AvatarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54F6C73B29AEDDAE00B070CD /* AvatarViewCell.xib */; };
 		54FF8A8729AE940A002A6D2F /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FF8A8629AE940A002A6D2F /* LocationsViewController.swift */; };
 		54FF8A8929AE9655002A6D2F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FF8A8829AE9655002A6D2F /* TabBarController.swift */; };
 		54FF8A8B29AE9A53002A6D2F /* AllLocations.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 54FF8A8A29AE9A53002A6D2F /* AllLocations.graphql */; };
@@ -62,6 +64,8 @@
 		54D27B0429ABF15C00C0965E /* R&MSchema.graphqls */ = {isa = PBXFileReference; lastKnownFileType = text; path = "R&MSchema.graphqls"; sourceTree = "<group>"; };
 		54D27B0729ABF6ED00C0965E /* AllCharacters.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllCharacters.graphql; sourceTree = "<group>"; };
 		54F6C73429AEABC700B070CD /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
+		54F6C73A29AEDDAE00B070CD /* AvatarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewCell.swift; sourceTree = "<group>"; };
+		54F6C73B29AEDDAE00B070CD /* AvatarViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarViewCell.xib; sourceTree = "<group>"; };
 		54FF8A8629AE940A002A6D2F /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		54FF8A8829AE9655002A6D2F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		54FF8A8A29AE9A53002A6D2F /* AllLocations.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllLocations.graphql; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 				54FF8A8629AE940A002A6D2F /* LocationsViewController.swift */,
 				54FF8A8829AE9655002A6D2F /* TabBarController.swift */,
 				54F6C73429AEABC700B070CD /* LocationDetailsViewController.swift */,
+				54F6C73A29AEDDAE00B070CD /* AvatarViewCell.swift */,
+				54F6C73B29AEDDAE00B070CD /* AvatarViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -292,6 +298,7 @@
 				54D27AFA29ABF02600C0965E /* LaunchScreen.storyboard in Resources */,
 				54D27AF729ABF02600C0965E /* Assets.xcassets in Resources */,
 				54FF8A8B29AE9A53002A6D2F /* AllLocations.graphql in Resources */,
+				54F6C73D29AEDDAE00B070CD /* AvatarViewCell.xib in Resources */,
 				54D27B0829ABF6ED00C0965E /* AllCharacters.graphql in Resources */,
 				54D27AF529ABF02600C0965E /* Main.storyboard in Resources */,
 			);
@@ -305,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54D27AF229ABF02600C0965E /* MainViewController.swift in Sources */,
+				54F6C73C29AEDDAE00B070CD /* AvatarViewCell.swift in Sources */,
 				549BD07B29AD0C6100DF0C4A /* Character.swift in Sources */,
 				549BD08229AD0DF300DF0C4A /* Characters.swift in Sources */,
 				54AF496129AD941200B20882 /* InfoCell.swift in Sources */,

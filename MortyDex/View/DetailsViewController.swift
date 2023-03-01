@@ -9,15 +9,15 @@ import UIKit
 import SDWebImage
 
 class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var tableView: UITableView!
     var currentSelection: Character?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.register(UINib(nibName: "InfoCell", bundle: nil), forCellReuseIdentifier: "infoCell")
-        self.title = currentSelection?.name
+        title = currentSelection?.name
         tableView.dataSource = self
         tableView.delegate = self //?
     }
@@ -74,7 +74,6 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         default:
             return UITableViewCell()
         }
-        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

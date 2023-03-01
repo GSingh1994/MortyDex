@@ -9,9 +9,11 @@ import UIKit
 import Apollo
 
 class TabBarController: UITabBarController {
+    
     let apolloClient = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql")!)
     var allLocations: [Location] = []
-
+    var locationResidents: [Resident] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -23,8 +25,17 @@ class TabBarController: UITabBarController {
             
             if let locationData = data.locations?.results {
                 for loc in locationData {
-                    let location = Location(name: loc?.name, type: loc?.type, dimension: loc?.dimension)
+                    
+                    //get residents
+                    for r in loc!.residents {
+                        let resident = Resident(name: r?.name, image: r?.image)
+                        self.locationResidents.append(resident)
+                    }
+                    
+                    let location = Location(name: loc?.name, type: loc?.type, dimension: loc?.dimension, resident: self.locationResidents)
+                    
                     self.allLocations.append(location)
+                    self.locationResidents = []
                 }
             }
             

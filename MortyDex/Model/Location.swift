@@ -11,4 +11,10 @@ struct Location {
     let name: String?
     let type: String?
     let dimension: String?
+    let resident: [Resident]
+}
+
+struct Resident {
+    let name: String?
+    let image: String?
 }
