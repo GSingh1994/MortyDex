@@ -32,16 +32,16 @@ class TabBarController: UITabBarController {
             guard let data = try? result.get().data else { return }
             
             if let charactersData = data.characters?.results {
-                for char in charactersData {
+                for character in charactersData {
                     
                     //get episodes
-                    for e in char!.episode {
-                        let episode = Episode(name: e?.name, info: e?.episode, date: e?.air_date, characters: self.episodeCharacters)
+                    for episode in character!.episode {
+                        let episode = Episode(name: episode?.name, info: episode?.episode, date: episode?.air_date, characters: self.episodeCharacters)
                         self.characterEpisodes.append(episode)
                     }
                     
                     //fill-out struct instance
-                    let character = Character(name: char?.name, image: char?.image, info: ["Status": char?.status,"Gender": char?.gender, "Species": char?.species], location: ["Origin": char?.origin?.name, "Last seen": char?.location?.name], episodes: self.characterEpisodes)
+                    let character = Character(name: character?.name, image: character?.image, info: ["Status": character?.status,"Gender": character?.gender, "Species": character?.species], location: ["Origin": character?.origin?.name, "Last seen": character?.location?.name], episodes: self.characterEpisodes)
                     
                     self.allCharacters.append(character)
                     self.characterEpisodes = []
@@ -49,10 +49,10 @@ class TabBarController: UITabBarController {
             }
             //send character data to MainVC
             let nav = self.viewControllers![0] as! UINavigationController
-            let MainVC = nav.topViewController as! MainViewController
-            MainVC.allCharacters = self.allCharacters
-            MainVC.characterEpisodes = self.characterEpisodes
-            MainVC.collectionView.reloadData()
+            let mainVC = nav.topViewController as! MainViewController
+            mainVC.allCharacters = self.allCharacters
+            mainVC.characterEpisodes = self.characterEpisodes
+            mainVC.collectionView.reloadData()
         }
         
     }
@@ -62,15 +62,15 @@ class TabBarController: UITabBarController {
             guard let data = try? result.get().data else { return }
             
             if let locationData = data.locations?.results {
-                for loc in locationData {
+                for location in locationData {
                     
                     //get residents
-                    for r in loc!.residents {
-                        let resident = Resident(name: r?.name, image: r?.image)
+                    for resident in location!.residents {
+                        let resident = Resident(name: resident?.name, image: resident?.image)
                         self.locationResidents.append(resident)
                     }
                     
-                    let location = Location(name: loc?.name, type: loc?.type, dimension: loc?.dimension, resident: self.locationResidents)
+                    let location = Location(name: location?.name, type: location?.type, dimension: location?.dimension, resident: self.locationResidents)
                     
                     self.allLocations.append(location)
                     self.locationResidents = []
@@ -79,8 +79,8 @@ class TabBarController: UITabBarController {
             
             //send location data to locationVC
             let nav = self.viewControllers![1] as! UINavigationController
-            let LocationsVC = nav.topViewController as! LocationsViewController
-            LocationsVC.allLocations = self.allLocations
+            let locationsVC = nav.topViewController as! LocationsViewController
+            locationsVC.allLocations = self.allLocations
         }
     }
     

@@ -27,10 +27,8 @@
 		5414F2F829AFA0AB0048BE2F /* SchemaMetadata.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5414F2EB29AFA0AB0048BE2F /* SchemaMetadata.graphql.swift */; };
 		5414F2F929AFA0AB0048BE2F /* MortySchema.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5414F2EC29AFA0AB0048BE2F /* MortySchema.graphql.swift */; };
 		5414F2FB29AFA2D30048BE2F /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5414F2FA29AFA2D30048BE2F /* Episode.swift */; };
-		5414F2FD29AFA2DC0048BE2F /* Episodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5414F2FC29AFA2DC0048BE2F /* Episodes.swift */; };
 		5414F2FF29AFA9C50048BE2F /* EpisodeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5414F2FE29AFA9C50048BE2F /* EpisodeDetailsViewController.swift */; };
 		549BD07B29AD0C6100DF0C4A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549BD07A29AD0C6100DF0C4A /* Character.swift */; };
-		549BD08229AD0DF300DF0C4A /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549BD08129AD0DF300DF0C4A /* Characters.swift */; };
 		54AF496129AD941200B20882 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AF495F29AD941200B20882 /* InfoCell.swift */; };
 		54AF496229AD941200B20882 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AF496029AD941200B20882 /* InfoCell.xib */; };
 		54D27AEE29ABF02600C0965E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D27AED29ABF02600C0965E /* AppDelegate.swift */; };
@@ -49,7 +47,6 @@
 		54FF8A8929AE9655002A6D2F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FF8A8829AE9655002A6D2F /* TabBarController.swift */; };
 		54FF8A8B29AE9A53002A6D2F /* AllLocations.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 54FF8A8A29AE9A53002A6D2F /* AllLocations.graphql */; };
 		54FF8AC329AE9C13002A6D2F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FF8AC229AE9C13002A6D2F /* Location.swift */; };
-		54FF8AC529AE9C1B002A6D2F /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FF8AC429AE9C1B002A6D2F /* Locations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,10 +69,8 @@
 		5414F2EB29AFA0AB0048BE2F /* SchemaMetadata.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemaMetadata.graphql.swift; sourceTree = "<group>"; };
 		5414F2EC29AFA0AB0048BE2F /* MortySchema.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MortySchema.graphql.swift; sourceTree = "<group>"; };
 		5414F2FA29AFA2D30048BE2F /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
-		5414F2FC29AFA2DC0048BE2F /* Episodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episodes.swift; sourceTree = "<group>"; };
 		5414F2FE29AFA9C50048BE2F /* EpisodeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsViewController.swift; sourceTree = "<group>"; };
 		549BD07A29AD0C6100DF0C4A /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		549BD08129AD0DF300DF0C4A /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
 		54AF495F29AD941200B20882 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		54AF496029AD941200B20882 /* InfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
 		54D27AEA29ABF02600C0965E /* MortyDex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MortyDex.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,7 +90,6 @@
 		54FF8A8829AE9655002A6D2F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		54FF8A8A29AE9A53002A6D2F /* AllLocations.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllLocations.graphql; sourceTree = "<group>"; };
 		54FF8AC229AE9C13002A6D2F /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		54FF8AC429AE9C1B002A6D2F /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,11 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				549BD07A29AD0C6100DF0C4A /* Character.swift */,
-				549BD08129AD0DF300DF0C4A /* Characters.swift */,
 				54FF8AC229AE9C13002A6D2F /* Location.swift */,
-				54FF8AC429AE9C1B002A6D2F /* Locations.swift */,
 				5414F2FA29AFA2D30048BE2F /* Episode.swift */,
-				5414F2FC29AFA2DC0048BE2F /* Episodes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -334,7 +325,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5414F2F529AFA0AB0048BE2F /* Episodes.graphql.swift in Sources */,
-				5414F2FD29AFA2DC0048BE2F /* Episodes.swift in Sources */,
 				5414F2F029AFA0AB0048BE2F /* Characters.graphql.swift in Sources */,
 				5414F2F829AFA0AB0048BE2F /* SchemaMetadata.graphql.swift in Sources */,
 				5414F2ED29AFA0AB0048BE2F /* AllEpisodesQuery.graphql.swift in Sources */,
@@ -344,9 +334,7 @@
 				54F6C73C29AEDDAE00B070CD /* AvatarViewCell.swift in Sources */,
 				549BD07B29AD0C6100DF0C4A /* Character.swift in Sources */,
 				5414F2F229AFA0AB0048BE2F /* Location.graphql.swift in Sources */,
-				549BD08229AD0DF300DF0C4A /* Characters.swift in Sources */,
 				54AF496129AD941200B20882 /* InfoCell.swift in Sources */,
-				54FF8AC529AE9C1B002A6D2F /* Locations.swift in Sources */,
 				5414F2FB29AFA2D30048BE2F /* Episode.swift in Sources */,
 				5409E3AD29AD001200E16A01 /* CharacterCell.swift in Sources */,
 				54D27AEE29ABF02600C0965E /* AppDelegate.swift in Sources */,
