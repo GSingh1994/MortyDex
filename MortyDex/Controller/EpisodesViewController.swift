@@ -33,4 +33,19 @@ class EpisodesViewController: UIViewController, UITableViewDelegate, UITableView
         cell.detailTextLabel?.text = date
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "episodeToDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "episodeToDetails" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let VC = segue.destination as! EpisodeDetailsViewController
+                
+                //pass selected location
+                VC.currentEpisode = allEpisodes[indexPath.row]
+            }
+        }
+    }
 }

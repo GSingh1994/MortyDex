@@ -11,4 +11,5 @@ struct Episode {
     let name: String?
     let info: String?
     let date: String?
+    let characters: [Character]
 }

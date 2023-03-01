@@ -18,6 +18,7 @@ class TabBarController: UITabBarController {
     var locationResidents: [Resident] = []
     
     var allEpisodes: [Episode] = []
+    var episodeCharacters: [Character] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ class TabBarController: UITabBarController {
                     
                     //get episodes
                     for e in char!.episode {
-                        let episode = Episode(name: e?.name, info: e?.episode, date: e?.air_date)
+                        let episode = Episode(name: e?.name, info: e?.episode, date: e?.air_date, characters: self.episodeCharacters)
                         self.characterEpisodes.append(episode)
                     }
                     
@@ -89,8 +90,15 @@ class TabBarController: UITabBarController {
             
             if let episodeData = data.episodes?.results {
                 for episode in episodeData {
-                    let episode = Episode(name: episode?.name, info: episode?.episode, date: episode?.air_date)
+                    
+                    for character in episode!.characters {
+                        let character = Character(name: character?.name, image: character?.image, info: ["" : ""], location: ["" : ""], episodes: self.characterEpisodes)
+                        self.episodeCharacters.append(character)
+                    }
+                    
+                    let episode = Episode(name: episode?.name, info: episode?.episode, date: episode?.air_date, characters: self.episodeCharacters)
                     self.allEpisodes.append(episode)
+                    self.episodeCharacters = []
                 }
             }
             //send episode data to episodeVC
