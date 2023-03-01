@@ -11,6 +11,8 @@
 		5409E3AD29AD001200E16A01 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409E3AC29AD001200E16A01 /* CharacterCell.swift */; };
 		540DFABC29AD24BB002BD4F4 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 540DFABB29AD24BB002BD4F4 /* SDWebImage */; };
 		540DFAC229AD2D86002BD4F4 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DFAC129AD2D86002BD4F4 /* DetailsViewController.swift */; };
+		5414F2D829AF9E570048BE2F /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5414F2D729AF9E570048BE2F /* EpisodesViewController.swift */; };
+		5414F2DA29AFA0000048BE2F /* AllEpisodes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 5414F2D929AFA0000048BE2F /* AllEpisodes.graphql */; };
 		549BD07B29AD0C6100DF0C4A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549BD07A29AD0C6100DF0C4A /* Character.swift */; };
 		549BD08229AD0DF300DF0C4A /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549BD08129AD0DF300DF0C4A /* Characters.swift */; };
 		54AF496129AD941200B20882 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AF495F29AD941200B20882 /* InfoCell.swift */; };
@@ -49,6 +51,8 @@
 		5406C88429AD5A2900D6E3A2 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		5409E3AC29AD001200E16A01 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		540DFAC129AD2D86002BD4F4 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = ../View/DetailsViewController.swift; sourceTree = "<group>"; };
+		5414F2D729AF9E570048BE2F /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
+		5414F2D929AFA0000048BE2F /* AllEpisodes.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllEpisodes.graphql; sourceTree = "<group>"; };
 		549BD07A29AD0C6100DF0C4A /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		549BD08129AD0DF300DF0C4A /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
 		54AF495F29AD941200B20882 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 			children = (
 				54D27AF129ABF02600C0965E /* MainViewController.swift */,
 				540DFAC129AD2D86002BD4F4 /* DetailsViewController.swift */,
+				5414F2D729AF9E570048BE2F /* EpisodesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 			children = (
 				54D27B0729ABF6ED00C0965E /* AllCharacters.graphql */,
 				54FF8A8A29AE9A53002A6D2F /* AllLocations.graphql */,
+				5414F2D929AFA0000048BE2F /* AllEpisodes.graphql */,
 			);
 			path = Queries;
 			sourceTree = "<group>";
@@ -297,6 +303,7 @@
 				54AF496229AD941200B20882 /* InfoCell.xib in Resources */,
 				54D27AFA29ABF02600C0965E /* LaunchScreen.storyboard in Resources */,
 				54D27AF729ABF02600C0965E /* Assets.xcassets in Resources */,
+				5414F2DA29AFA0000048BE2F /* AllEpisodes.graphql in Resources */,
 				54FF8A8B29AE9A53002A6D2F /* AllLocations.graphql in Resources */,
 				54F6C73D29AEDDAE00B070CD /* AvatarViewCell.xib in Resources */,
 				54D27B0829ABF6ED00C0965E /* AllCharacters.graphql in Resources */,
@@ -332,6 +339,7 @@
 				54FF8ABA29AE9B4D002A6D2F /* Character.graphql.swift in Sources */,
 				54D27AF029ABF02600C0965E /* SceneDelegate.swift in Sources */,
 				540DFAC229AD2D86002BD4F4 /* DetailsViewController.swift in Sources */,
+				5414F2D829AF9E570048BE2F /* EpisodesViewController.swift in Sources */,
 				54FF8AC029AE9B4D002A6D2F /* SchemaMetadata.graphql.swift in Sources */,
 				54FF8A8729AE940A002A6D2F /* LocationsViewController.swift in Sources */,
 				54FF8A8929AE9655002A6D2F /* TabBarController.swift in Sources */,
