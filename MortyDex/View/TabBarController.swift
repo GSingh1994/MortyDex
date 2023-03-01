@@ -13,14 +13,17 @@ class TabBarController: UITabBarController {
     
     var allCharacters: [Character] = []
     var characterEpisodes: [Episode] = []
-
+    
     var allLocations: [Location] = []
     var locationResidents: [Resident] = []
+    
+    var allEpisodes: [Episode] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCharacters(pageNum: 0)
         loadLocations(pageNum: 0)
+        loadEpisodes()
     }
     
     func loadCharacters(pageNum: Int) {
@@ -29,7 +32,7 @@ class TabBarController: UITabBarController {
             
             if let charactersData = data.characters?.results {
                 for char in charactersData {
-        
+                    
                     //get episodes
                     for e in char!.episode {
                         let episode = Episode(name: e?.name, info: e?.episode, date: e?.air_date)
@@ -77,6 +80,23 @@ class TabBarController: UITabBarController {
             let nav = self.viewControllers![1] as! UINavigationController
             let LocationsVC = nav.topViewController as! LocationsViewController
             LocationsVC.allLocations = self.allLocations
+        }
+    }
+    
+    func loadEpisodes() {
+        apolloClient.fetch(query: MortySchema.AllEpisodesQuery(page: 0)) { result in
+            guard let data = try? result.get().data else { return }
+            
+            if let episodeData = data.episodes?.results {
+                for episode in episodeData {
+                    let episode = Episode(name: episode?.name, info: episode?.episode, date: episode?.air_date)
+                    self.allEpisodes.append(episode)
+                }
+            }
+            //send episode data to episodeVC
+            let nav = self.viewControllers![2] as! UINavigationController
+            let episodesVC = nav.topViewController as! EpisodesViewController
+            episodesVC.allEpisodes = self.allEpisodes
         }
     }
 }

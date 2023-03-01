@@ -15,7 +15,6 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.reloadData()
         self.title = "Locations"
     }
     

@@ -15,8 +15,3 @@ struct Character {
     let episodes: [Episode]
 }
 
-struct Episode {
-    let name: String?
-    let info: String?
-    let date: String?
-}

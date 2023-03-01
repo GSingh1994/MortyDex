@@ -7,23 +7,30 @@
 
 import UIKit
 
-class EpisodesViewController: UIViewController {
+class EpisodesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    var allEpisodes: [Episode] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        tableView.delegate = self
+        self.title = "Episodes"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return allEpisodes.count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "episodesCell", for: indexPath)
+        let name = allEpisodes[indexPath.row].name
+        let info = allEpisodes[indexPath.row].info
+        let date = allEpisodes[indexPath.row].date
+        cell.textLabel?.text = "\(info!) | \(name!)"
+        cell.detailTextLabel?.text = date
+        return cell
+    }
 }
