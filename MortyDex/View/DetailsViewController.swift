@@ -11,7 +11,6 @@ import Apollo
 
 class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let apolloClient = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql")!)
-    
     @IBOutlet weak var tableView: UITableView!
     
     var character = CharacterDetail()
@@ -37,9 +36,9 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.character.origin = char.origin?.name
                 self.character.location = char.location?.name
                 
-                
                 for epi in char.episode {
                     let episode = Episode()
+                    episode.id = epi?.id
                     episode.name = epi?.name
                     episode.info = epi?.episode
                     episode.date = epi?.air_date
@@ -84,7 +83,6 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         switch indexPath.section {
         case 0:
             //Character image cell
@@ -139,6 +137,21 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
             return "EPISODE"
         default:
             return ""
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 3 {
+            performSegue(withIdentifier: "characterToEpisode", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "characterToEpisode" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let VC = segue.destination as! EpisodeDetailsViewController
+                VC.episode.id = character.episodes[indexPath.row].id
+            }
         }
     }
 }

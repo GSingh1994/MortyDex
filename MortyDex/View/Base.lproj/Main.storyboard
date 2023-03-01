@@ -134,6 +134,7 @@
                     <navigationItem key="navigationItem" id="lOz-ch-IRy"/>
                     <connections>
                         <outlet property="tableView" destination="JZz-gn-qO7" id="tuM-vg-PQz"/>
+                        <segue destination="hKJ-hy-UhI" kind="show" identifier="characterToEpisode" id="4Yy-Ev-NcL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NkX-Gq-rb2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -176,21 +177,21 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="episodesCell" textLabel="tad-Va-uYp" detailTextLabel="8PG-aM-OjU" style="IBUITableViewCellStyleSubtitle" id="xRr-fZ-gbO">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="51.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xRr-fZ-gbO" id="EWy-V2-8zE">
-                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="51.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tad-Va-uYp">
-                                                    <rect key="frame" x="19.999999999999996" y="6" width="32.666666666666664" height="18"/>
+                                                    <rect key="frame" x="19.999999999999996" y="7.3333333333333357" width="32.666666666666664" height="18"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="8PG-aM-OjU">
-                                                    <rect key="frame" x="19.999999999999996" y="24" width="46.666666666666664" height="15.666666666666666"/>
+                                                    <rect key="frame" x="19.999999999999996" y="28.000000000000004" width="46.666666666666664" height="15.666666666666666"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -381,6 +382,9 @@
             <point key="canvasLocation" x="877" y="-775"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="4Yy-Ev-NcL"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>

@@ -8,5 +8,5 @@
 import Foundation
 
 class EpisodeDetail: Episode {
-    let characters: [Character] = []
+    var characters: [Character] = []
 }
