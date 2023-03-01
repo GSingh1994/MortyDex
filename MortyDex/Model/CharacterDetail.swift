@@ -8,7 +8,10 @@
 import Foundation
 
 class CharacterDetail: Character {
-    let info: [String: String?] = [:]
-    let location: [String: String?] = [:]
-    let episodes: [Episode] = []
+    var status: String? = nil
+    var species: String? = nil
+    var gender: String? = nil
+    var origin: String? = nil
+    var location: String? = nil
+    var episodes: [Episode] = []
 }

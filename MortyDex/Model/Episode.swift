@@ -8,8 +8,8 @@
 import Foundation
 
 class Episode {
-    let id: String? = nil
-    let name: String? = nil
-    let info: String? = nil
-    let date: String? = nil
+    var id: String? = nil
+    var name: String? = nil
+    var info: String? = nil
+    var date: String? = nil
 }
