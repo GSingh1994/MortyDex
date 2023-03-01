@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class LocationDetailsViewController: UITableViewController {
     
@@ -49,6 +50,7 @@ class LocationDetailsViewController: UITableViewController {
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "avatarDetailCell", for: indexPath) as! AvatarViewCell
             cell.leftLabel.text = currentSelection?.resident[indexPath.row].name
+            cell.leftImageView.sd_setImage(with: URL(string: (currentSelection?.resident[indexPath.row].image)!))
             return cell
             
         default:

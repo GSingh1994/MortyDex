@@ -13,7 +13,9 @@ class AvatarViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        leftImageView.layer.masksToBounds = true
+        leftImageView.layer.cornerRadius = leftImageView.frame.size.width/2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
