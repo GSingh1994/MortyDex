@@ -37,6 +37,16 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
         performSegue(withIdentifier: "locationToDetails", sender: self)
     }
     
+    //load data on scroll
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
+            
+            let vc = self.navigationController?.tabBarController as! TabBarController
+            vc.loadLocations(pageNum: 1)
+            tableView.reloadData()
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "locationToDetails" {
             if let indexPath = tableView.indexPathForSelectedRow {

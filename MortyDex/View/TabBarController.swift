@@ -19,12 +19,12 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadCharacters()
-        loadLocations()
+        loadCharacters(pageNum: 0)
+        loadLocations(pageNum: 0)
     }
     
-    func loadCharacters() {
-        apolloClient.fetch(query: MortySchema.AllCharactersQuery(page: 1)) { result in
+    func loadCharacters(pageNum: Int) {
+        apolloClient.fetch(query: MortySchema.AllCharactersQuery(page: GraphQLNullable<Int>(integerLiteral: pageNum))) { result in
             guard let data = try? result.get().data else { return }
             
             if let charactersData = data.characters?.results {
@@ -53,8 +53,8 @@ class TabBarController: UITabBarController {
         
     }
     
-    func loadLocations() {
-        apolloClient.fetch(query: MortySchema.AllLocationsQuery(page: 1)) { result in
+    func loadLocations(pageNum: Int) {
+        apolloClient.fetch(query: MortySchema.AllLocationsQuery(page: GraphQLNullable<Int>(integerLiteral: pageNum))) { result in
             guard let data = try? result.get().data else { return }
             
             if let locationData = data.locations?.results {
