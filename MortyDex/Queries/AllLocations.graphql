@@ -5,11 +5,6 @@ query AllLocations($page: Int) {
       name
       type
       dimension
-      residents {
-        id
-        image
-        name
-      }
     }
   }
 }

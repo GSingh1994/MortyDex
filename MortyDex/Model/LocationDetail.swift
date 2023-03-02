@@ -8,11 +8,11 @@
 import Foundation
 
 class LocationDetail: Location {
-    let resident: [Resident] = []
+    var resident: [Resident] = []
 }
 
-struct Resident {
-    let id: String?
-    let name: String?
-    let image: String?
+class Resident {
+    var id: String?
+    var name: String?
+    var image: String?
 }

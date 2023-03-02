@@ -18,12 +18,6 @@ public extension MortySchema {
               episode
               name
               air_date
-              characters {
-                __typename
-                id
-                image
-                name
-              }
             }
           }
         }
@@ -77,7 +71,6 @@ public extension MortySchema {
             .field("episode", String?.self),
             .field("name", String?.self),
             .field("air_date", String?.self),
-            .field("characters", [Character?].self),
           ] }
 
           /// The id of the episode.
@@ -88,31 +81,6 @@ public extension MortySchema {
           public var name: String? { __data["name"] }
           /// The air date of the episode.
           public var air_date: String? { __data["air_date"] }
-          /// List of characters who have been seen in the episode.
-          public var characters: [Character?] { __data["characters"] }
-
-          /// Episodes.Result.Character
-          ///
-          /// Parent Type: `Character`
-          public struct Character: MortySchema.SelectionSet {
-            public let __data: DataDict
-            public init(data: DataDict) { __data = data }
-
-            public static var __parentType: ApolloAPI.ParentType { MortySchema.Objects.Character }
-            public static var __selections: [ApolloAPI.Selection] { [
-              .field("id", MortySchema.ID?.self),
-              .field("image", String?.self),
-              .field("name", String?.self),
-            ] }
-
-            /// The id of the character.
-            public var id: MortySchema.ID? { __data["id"] }
-            /// Link to the character's image.
-            /// All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.
-            public var image: String? { __data["image"] }
-            /// The name of the character.
-            public var name: String? { __data["name"] }
-          }
         }
       }
     }

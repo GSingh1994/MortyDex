@@ -8,8 +8,8 @@
 import Foundation
 
 class Location {
-    let id: String? = nil
-    let name: String? = nil
-    let type: String? = nil
-    let dimension: String? = nil
+    var id: String? = nil
+    var name: String? = nil
+    var type: String? = nil
+    var dimension: String? = nil
 }
