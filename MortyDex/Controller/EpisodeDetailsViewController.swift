@@ -7,8 +7,9 @@
 
 import UIKit
 import Apollo
+import SkeletonView
 
-class EpisodeDetailsViewController: UITableViewController {
+class EpisodeDetailsViewController: UITableViewController, SkeletonTableViewDataSource {
     let apolloClient = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql")!)
 
     var episode = EpisodeDetail()
@@ -54,6 +55,15 @@ class EpisodeDetailsViewController: UITableViewController {
         }
     }
     
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        if indexPath.section == 0 {
+            return "infoCell"
+        } else if indexPath.section == 1 {
+            return "infoCell"
+        }
+        return "avatarDetailCell"
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -73,7 +83,11 @@ class EpisodeDetailsViewController: UITableViewController {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfoCell
+            cell.infoLeftLabel.showAnimatedSkeleton()
+            cell.infoRightLabel.showAnimatedSkeleton()
             if !infoSection.isEmpty {
+                cell.infoLeftLabel.hideSkeleton()
+                cell.infoRightLabel.hideSkeleton()
                 cell.infoLeftLabel.text = Array(infoSection)[indexPath.row].key
                 cell.infoRightLabel.text = Array(infoSection)[indexPath.row].value
             }
@@ -81,8 +95,15 @@ class EpisodeDetailsViewController: UITableViewController {
             
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "avatarDetailCell", for: indexPath) as! AvatarViewCell
-            cell.leftLabel.text = episode.characters[indexPath.row].name
-            cell.leftImageView.sd_setImage(with: URL(string: (episode.characters[indexPath.row].image)!))
+            cell.leftImageView.showAnimatedSkeleton()
+            cell.leftLabel.showAnimatedSkeleton()
+            
+            DispatchQueue.main.async {
+                cell.leftLabel.hideSkeleton()
+                cell.leftImageView.hideSkeleton()
+                cell.leftLabel.text = self.episode.characters[indexPath.row].name
+                cell.leftImageView.sd_setImage(with: URL(string: (self.episode.characters[indexPath.row].image)!))
+            }
             return cell
             
         default:
