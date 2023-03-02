@@ -221,9 +221,6 @@
 				5406C88429AD5A2900D6E3A2 /* ImageCell.swift */,
 				54AF495F29AD941200B20882 /* InfoCell.swift */,
 				54AF496029AD941200B20882 /* InfoCell.xib */,
-				54FF8A8629AE940A002A6D2F /* LocationsViewController.swift */,
-				54FF8A8829AE9655002A6D2F /* TabBarController.swift */,
-				54F6C73429AEABC700B070CD /* LocationDetailsViewController.swift */,
 				54F6C73A29AEDDAE00B070CD /* AvatarViewCell.swift */,
 				54F6C73B29AEDDAE00B070CD /* AvatarViewCell.xib */,
 			);
@@ -233,8 +230,11 @@
 		549BD08029AD0D9900DF0C4A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				54FF8A8829AE9655002A6D2F /* TabBarController.swift */,
 				54D27AF129ABF02600C0965E /* MainViewController.swift */,
 				540DFAC129AD2D86002BD4F4 /* DetailsViewController.swift */,
+				54FF8A8629AE940A002A6D2F /* LocationsViewController.swift */,
+				54F6C73429AEABC700B070CD /* LocationDetailsViewController.swift */,
 				5414F2D729AF9E570048BE2F /* EpisodesViewController.swift */,
 				5414F2FE29AFA9C50048BE2F /* EpisodeDetailsViewController.swift */,
 			);
