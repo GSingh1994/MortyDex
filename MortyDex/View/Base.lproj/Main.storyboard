@@ -57,8 +57,22 @@
                             <outlet property="delegate" destination="DJg-zu-Qzd" id="ZqA-av-TTF"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="vXv-jn-csF"/>
+                    <navigationItem key="navigationItem" id="vXv-jn-csF">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="center" minimumFontSize="17" id="jvN-qh-xJS">
+                            <rect key="frame" x="53.333333333333343" y="5" width="281" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
+                        </textField>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="kRc-Rr-iBZ">
+                            <connections>
+                                <action selector="searchPressed:" destination="DJg-zu-Qzd" id="TWP-BG-Ht3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="searchField" destination="jvN-qh-xJS" id="bdJ-1H-5UF"/>
                         <segue destination="pbE-O5-q4J" kind="show" identifier="mainToDetails" id="Mdq-xZ-AXf"/>
                     </connections>
                 </collectionViewController>
@@ -71,7 +85,7 @@
             <objects>
                 <viewController storyboardIdentifier="Detail" id="pbE-O5-q4J" customClass="DetailsViewController" customModule="MortyDex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VfC-1i-0Bl">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JZz-gn-qO7">
@@ -245,7 +259,7 @@
             <objects>
                 <tableViewController id="hKJ-hy-UhI" customClass="EpisodeDetailsViewController" customModule="MortyDex" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="NIb-WR-cQL">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -423,9 +437,10 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="4Yy-Ev-NcL"/>
-        <segue reference="ZwB-C4-E7R"/>
+        <segue reference="Mdq-xZ-AXf"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="tv.fill" catalog="system" width="128" height="95"/>

@@ -7,8 +7,14 @@
 
 import UIKit
 import SDWebImage
+import Apollo
 
-class MainViewController: UICollectionViewController {
+
+class MainViewController: UICollectionViewController, UITextFieldDelegate {
+    let apolloClient = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql")!)
+
+    @IBOutlet weak var searchField: UITextField!
+    
     var allCharacters: [Character] = []
     var characterEpisodes: [Episode] = []
     var page: Int = 1
@@ -16,6 +22,20 @@ class MainViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Characters"
+    }
+    
+    @IBAction func searchPressed(_ sender: UIBarButtonItem) {
+        searchCharacter(input: searchField.text)
+        searchField.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchField.endEditing(true)
+        return true
+    }
+    
+    func searchCharacter(input: String?) {
+//        apolloClient.fetch(query: MortySchema.SearchCharacterQuery(filter: "filter"))
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

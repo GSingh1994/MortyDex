@@ -26,8 +26,6 @@ class TabBarController: UITabBarController {
         apolloClient.fetch(query: MortySchema.AllCharactersQuery(page: GraphQLNullable<Int>(integerLiteral: page))) { result in
             guard let data = try? result.get().data else { return }
             
- 
-            
             if let charactersData = data.characters?.results {
                 for char in charactersData {
                     let character = Character()
