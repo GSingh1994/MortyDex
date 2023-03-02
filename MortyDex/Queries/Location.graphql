@@ -2,7 +2,12 @@ query Location($locationId: ID!) {
   location(id: $locationId) {
     id
     name
-    dimension
     type
+    dimension
+    residents {
+      id
+      name
+      image
+    }
   }
 }

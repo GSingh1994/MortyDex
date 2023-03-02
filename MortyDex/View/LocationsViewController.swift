@@ -47,15 +47,15 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
 //        }
 //    }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "locationToDetails" {
-//            if let indexPath = tableView.indexPathForSelectedRow {
-//                let VC = segue.destination as! LocationDetailsViewController
-//                
-//                //pass selected location
-//                VC.currentSelection = self.allLocations[indexPath.row]
-//            }
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "locationToDetails" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let VC = segue.destination as! LocationDetailsViewController
+
+                //pass selected location
+                VC.location.id = allLocations[indexPath.row].id
+            }
+        }
+    }
     
 }

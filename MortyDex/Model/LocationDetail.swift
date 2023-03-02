@@ -8,7 +8,7 @@
 import Foundation
 
 class LocationDetail: Location {
-    var resident: [Resident] = []
+    var residents: [Resident] = []
 }
 
 class Resident {
