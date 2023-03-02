@@ -8,8 +8,9 @@
 import UIKit
 import SDWebImage
 import Apollo
+import SkeletonView
 
-class LocationDetailsViewController: UITableViewController {
+class LocationDetailsViewController: UITableViewController, SkeletonTableViewDataSource {
     let apolloClient = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql")!)
     
     var location = LocationDetail()
@@ -56,6 +57,15 @@ class LocationDetailsViewController: UITableViewController {
         }
     }
     
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        if indexPath.section == 0 {
+            return "infoCell"
+        } else if indexPath.section == 1 {
+            return "avatarDetailCell"
+        }
+        return "avatarDetailCell"
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -75,15 +85,26 @@ class LocationDetailsViewController: UITableViewController {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfoCell
+            cell.infoRightLabel.showAnimatedSkeleton()
+            cell.infoLeftLabel.showAnimatedSkeleton()
             if !infoSection.isEmpty {
+                cell.infoRightLabel.hideSkeleton()
+                cell.infoLeftLabel.hideSkeleton()
                 cell.infoLeftLabel.text = Array(infoSection)[indexPath.row].key
                 cell.infoRightLabel.text = Array(infoSection)[indexPath.row].value
             }
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "avatarDetailCell", for: indexPath) as! AvatarViewCell
-            cell.leftLabel.text = location.residents[indexPath.row].name
-            cell.leftImageView.sd_setImage(with: URL(string: (location.residents[indexPath.row].image)!))
+            
+            cell.leftImageView.showAnimatedSkeleton()
+            cell.leftLabel.showAnimatedSkeleton()
+            if let image = location.residents[indexPath.row].image {
+                cell.leftLabel.hideSkeleton()
+                cell.leftImageView.hideSkeleton()
+                cell.leftLabel.text = location.residents[indexPath.row].name
+                cell.leftImageView.sd_setImage(with: URL(string: image))
+            }
             return cell
             
         default:

@@ -59,7 +59,7 @@ class EpisodeDetailsViewController: UITableViewController, SkeletonTableViewData
         if indexPath.section == 0 {
             return "infoCell"
         } else if indexPath.section == 1 {
-            return "infoCell"
+            return "avatarDetailCell"
         }
         return "avatarDetailCell"
     }
