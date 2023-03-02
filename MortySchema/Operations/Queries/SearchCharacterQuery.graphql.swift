@@ -4,13 +4,13 @@
 @_exported import ApolloAPI
 
 public extension MortySchema {
-  class AllCharactersQuery: GraphQLQuery {
-    public static let operationName: String = "AllCharacters"
+  class SearchCharacterQuery: GraphQLQuery {
+    public static let operationName: String = "SearchCharacter"
     public static let document: ApolloAPI.DocumentType = .notPersisted(
       definition: .init(
         #"""
-        query AllCharacters($page: Int) {
-          characters(page: $page) {
+        query SearchCharacter($name: String) {
+          characters(filter: {name: $name}) {
             __typename
             results {
               __typename
@@ -23,13 +23,13 @@ public extension MortySchema {
         """#
       ))
 
-    public var page: GraphQLNullable<Int>
+    public var name: GraphQLNullable<String>
 
-    public init(page: GraphQLNullable<Int>) {
-      self.page = page
+    public init(name: GraphQLNullable<String>) {
+      self.name = name
     }
 
-    public var __variables: Variables? { ["page": page] }
+    public var __variables: Variables? { ["name": name] }
 
     public struct Data: MortySchema.SelectionSet {
       public let __data: DataDict
@@ -37,7 +37,7 @@ public extension MortySchema {
 
       public static var __parentType: ApolloAPI.ParentType { MortySchema.Objects.Query }
       public static var __selections: [ApolloAPI.Selection] { [
-        .field("characters", Characters?.self, arguments: ["page": .variable("page")]),
+        .field("characters", Characters?.self, arguments: ["filter": ["name": .variable("name")]]),
       ] }
 
       /// Get the list of all characters

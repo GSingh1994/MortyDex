@@ -4,15 +4,19 @@
 @_exported import ApolloAPI
 
 public extension MortySchema {
-  class AllCharactersQuery: GraphQLQuery {
-    public static let operationName: String = "AllCharacters"
+  class LocationQuery: GraphQLQuery {
+    public static let operationName: String = "Location"
     public static let document: ApolloAPI.DocumentType = .notPersisted(
       definition: .init(
         #"""
-        query AllCharacters($page: Int) {
-          characters(page: $page) {
+        query Location($locationId: ID!) {
+          location(id: $locationId) {
             __typename
-            results {
+            id
+            name
+            type
+            dimension
+            residents {
               __typename
               id
               name
@@ -23,13 +27,13 @@ public extension MortySchema {
         """#
       ))
 
-    public var page: GraphQLNullable<Int>
+    public var locationId: ID
 
-    public init(page: GraphQLNullable<Int>) {
-      self.page = page
+    public init(locationId: ID) {
+      self.locationId = locationId
     }
 
-    public var __variables: Variables? { ["page": page] }
+    public var __variables: Variables? { ["locationId": locationId] }
 
     public struct Data: MortySchema.SelectionSet {
       public let __data: DataDict
@@ -37,30 +41,43 @@ public extension MortySchema {
 
       public static var __parentType: ApolloAPI.ParentType { MortySchema.Objects.Query }
       public static var __selections: [ApolloAPI.Selection] { [
-        .field("characters", Characters?.self, arguments: ["page": .variable("page")]),
+        .field("location", Location?.self, arguments: ["id": .variable("locationId")]),
       ] }
 
-      /// Get the list of all characters
-      public var characters: Characters? { __data["characters"] }
+      /// Get a specific locations by ID
+      public var location: Location? { __data["location"] }
 
-      /// Characters
+      /// Location
       ///
-      /// Parent Type: `Characters`
-      public struct Characters: MortySchema.SelectionSet {
+      /// Parent Type: `Location`
+      public struct Location: MortySchema.SelectionSet {
         public let __data: DataDict
         public init(data: DataDict) { __data = data }
 
-        public static var __parentType: ApolloAPI.ParentType { MortySchema.Objects.Characters }
+        public static var __parentType: ApolloAPI.ParentType { MortySchema.Objects.Location }
         public static var __selections: [ApolloAPI.Selection] { [
-          .field("results", [Result?]?.self),
+          .field("id", MortySchema.ID?.self),
+          .field("name", String?.self),
+          .field("type", String?.self),
+          .field("dimension", String?.self),
+          .field("residents", [Resident?].self),
         ] }
 
-        public var results: [Result?]? { __data["results"] }
+        /// The id of the location.
+        public var id: MortySchema.ID? { __data["id"] }
+        /// The name of the location.
+        public var name: String? { __data["name"] }
+        /// The type of the location.
+        public var type: String? { __data["type"] }
+        /// The dimension in which the location is located.
+        public var dimension: String? { __data["dimension"] }
+        /// List of characters who have been last seen in the location.
+        public var residents: [Resident?] { __data["residents"] }
 
-        /// Characters.Result
+        /// Location.Resident
         ///
         /// Parent Type: `Character`
-        public struct Result: MortySchema.SelectionSet {
+        public struct Resident: MortySchema.SelectionSet {
           public let __data: DataDict
           public init(data: DataDict) { __data = data }
 

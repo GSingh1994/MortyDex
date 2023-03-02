@@ -1,55 +1,57 @@
 //
-//  EpisodeDetailsViewController.swift
+//  LocationDetailsViewController.swift
 //  MortyDex
 //
-//  Created by Gagan on 2023-03-01.
+//  Created by Gagan on 2023-02-28.
 //
 
 import UIKit
+import SDWebImage
 import Apollo
 import SkeletonView
 
-class EpisodeDetailsViewController: UITableViewController, SkeletonTableViewDataSource {
+class LocationDetailsViewController: UITableViewController, SkeletonTableViewDataSource {
     let apolloClient = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql")!)
-
-    var episode = EpisodeDetail()
+    
+    var location = LocationDetail()
     var infoSection: [String: String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadEpisode(ID: episode.id!)
+        loadLocation(ID: location.id!)
+        
         tableView.register(UINib(nibName: "InfoCell", bundle: nil), forCellReuseIdentifier: "infoCell")
         tableView.register(UINib(nibName: "AvatarViewCell", bundle: nil), forCellReuseIdentifier: "avatarDetailCell")
         tableView.dataSource = self
         tableView.delegate = self
     }
     
-    func loadEpisode(ID: String) {
-        apolloClient.fetch(query: MortySchema.EpisodeQuery(episodeId: ID)) { result in
+    func loadLocation(ID: String) {
+        apolloClient.fetch(query: MortySchema.LocationQuery(locationId: ID)) { result in
             guard let data = try? result.get().data else { return }
-            if let episode = data.episode {
+            if let location = data.location {
                 
-                var characters: [Character] = []
+                var residents: [Resident] = []
                 
-                self.episode.name = episode.name
-                self.episode.info = episode.episode
-                self.episode.date = episode.air_date
+                self.location.name = location.name
+                self.location.type = location.type
+                self.location.dimension = location.dimension
                 
-                for char in episode.characters {
-                    let character = Character()
-                    character.id = char?.id
-                    character.name = char?.name
-                    character.image = char?.image
-                    characters.append(character)
+                for res in location.residents {
+                    let resident = Resident()
+                    resident.id = res?.id
+                    resident.name = res?.name
+                    resident.image = res?.image
+                    residents.append(resident)
                 }
                 
-                self.episode.characters = characters
-                
                 self.infoSection = [
-                    "Episode": self.episode.info!,
-                    "Air date": self.episode.date!]
+                    "Type": location.type!,
+                    "Dimension": location.dimension!
+                ]
                 
-                self.title = self.episode.name
+                self.location.residents = residents
+                self.title = self.location.name
                 self.tableView.reloadData()
             }
         }
@@ -73,7 +75,7 @@ class EpisodeDetailsViewController: UITableViewController, SkeletonTableViewData
         case 0:
             return 2
         case 1:
-            return episode.characters.count
+            return location.residents.count
         default:
             return 1
         }
@@ -83,26 +85,25 @@ class EpisodeDetailsViewController: UITableViewController, SkeletonTableViewData
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfoCell
-            cell.infoLeftLabel.showAnimatedSkeleton()
             cell.infoRightLabel.showAnimatedSkeleton()
+            cell.infoLeftLabel.showAnimatedSkeleton()
             if !infoSection.isEmpty {
-                cell.infoLeftLabel.hideSkeleton()
                 cell.infoRightLabel.hideSkeleton()
+                cell.infoLeftLabel.hideSkeleton()
                 cell.infoLeftLabel.text = Array(infoSection)[indexPath.row].key
                 cell.infoRightLabel.text = Array(infoSection)[indexPath.row].value
             }
             return cell
-            
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "avatarDetailCell", for: indexPath) as! AvatarViewCell
+            
             cell.leftImageView.showAnimatedSkeleton()
             cell.leftLabel.showAnimatedSkeleton()
-            
-            DispatchQueue.main.async {
+            if let image = location.residents[indexPath.row].image {
                 cell.leftLabel.hideSkeleton()
                 cell.leftImageView.hideSkeleton()
-                cell.leftLabel.text = self.episode.characters[indexPath.row].name
-                cell.leftImageView.sd_setImage(with: URL(string: (self.episode.characters[indexPath.row].image)!))
+                cell.leftLabel.text = location.residents[indexPath.row].name
+                cell.leftImageView.sd_setImage(with: URL(string: image))
             }
             return cell
             
@@ -116,23 +117,23 @@ class EpisodeDetailsViewController: UITableViewController, SkeletonTableViewData
         case 0:
             return "INFO"
         case 1:
-            return "CHARACTERS"
+            return "RESIDENTS"
         default:
             return ""
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "episodeToCharacter", sender: self)
+        performSegue(withIdentifier: "locationToCharacter", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "episodeToCharacter" {
+        if segue.identifier == "locationToCharacter" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let VC = segue.destination as! DetailsViewController
                 
                 //pass selected character ID
-                VC.character.id = self.episode.characters[indexPath.row].id
+                VC.character.id = location.residents[indexPath.row].id
             }
         }
     }

@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Episode {
-    let name: String?
-    let info: String?
-    let date: String?
-    let characters: [Character]
+class Episode {
+    var id: String? = nil
+    var name: String? = nil
+    var info: String? = nil
+    var date: String? = nil
 }
