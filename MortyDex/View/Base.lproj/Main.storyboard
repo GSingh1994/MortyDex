@@ -87,6 +87,12 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bl0-Uf-iWf">
                                                     <rect key="frame" x="20" y="11" width="353" height="271"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="271" id="Y48-qU-DgU"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -95,7 +101,13 @@
                                                 <constraint firstItem="bl0-Uf-iWf" firstAttribute="leading" secondItem="ndB-NW-zUU" secondAttribute="leadingMargin" id="evD-Pe-sUw"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="bl0-Uf-iWf" secondAttribute="bottom" id="oeJ-Db-PHk"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="imageCellView" destination="bl0-Uf-iWf" id="3oU-bh-6gT"/>
                                         </connections>
@@ -122,10 +134,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bHe-Uw-qH7"/>
@@ -153,6 +174,9 @@
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         </textAttributes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -390,7 +414,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="4Yy-Ev-NcL"/>
-        <segue reference="Z21-N9-6aI"/>
+        <segue reference="Mdq-xZ-AXf"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="map.fill" catalog="system" width="128" height="110"/>

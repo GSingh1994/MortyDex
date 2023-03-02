@@ -38,6 +38,7 @@
 		5414F2DA29AFA0000048BE2F /* AllEpisodes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 5414F2D929AFA0000048BE2F /* AllEpisodes.graphql */; };
 		5414F2FB29AFA2D30048BE2F /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5414F2FA29AFA2D30048BE2F /* Episode.swift */; };
 		5414F2FF29AFA9C50048BE2F /* EpisodeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5414F2FE29AFA9C50048BE2F /* EpisodeDetailsViewController.swift */; };
+		54734F5A29B04A510034560A /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 54734F5929B04A510034560A /* SkeletonView */; };
 		549BD07B29AD0C6100DF0C4A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549BD07A29AD0C6100DF0C4A /* Character.swift */; };
 		54AF496129AD941200B20882 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AF495F29AD941200B20882 /* InfoCell.swift */; };
 		54AF496229AD941200B20882 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AF496029AD941200B20882 /* InfoCell.xib */; };
@@ -118,6 +119,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				540DFABC29AD24BB002BD4F4 /* SDWebImage in Frameworks */,
+				54734F5A29B04A510034560A /* SkeletonView in Frameworks */,
 				54D27B0329ABF0BF00C0965E /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +290,7 @@
 			packageProductDependencies = (
 				54D27B0229ABF0BF00C0965E /* Apollo */,
 				540DFABB29AD24BB002BD4F4 /* SDWebImage */,
+				54734F5929B04A510034560A /* SkeletonView */,
 			);
 			productName = MortyDex;
 			productReference = 54D27AEA29ABF02600C0965E /* MortyDex.app */;
@@ -320,6 +323,7 @@
 			packageReferences = (
 				54D27B0129ABF0BF00C0965E /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				540DFABA29AD24BB002BD4F4 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				54734F5829B04A510034560A /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 54D27AEB29ABF02600C0965E /* Products */;
 			projectDirPath = "";
@@ -620,6 +624,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		54734F5829B04A510034560A /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		54D27B0129ABF0BF00C0965E /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
@@ -635,6 +647,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 540DFABA29AD24BB002BD4F4 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		54734F5929B04A510034560A /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54734F5829B04A510034560A /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 		54D27B0229ABF0BF00C0965E /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;

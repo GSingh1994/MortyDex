@@ -8,8 +8,9 @@
 import UIKit
 import SDWebImage
 import Apollo
+import SkeletonView
 
-class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DetailsViewController: UIViewController, UITableViewDelegate, SkeletonTableViewDataSource {
     let apolloClient = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql")!)
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,7 +23,15 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         loadCharacter(ID: character.id!)
         tableView.register(UINib(nibName: "InfoCell", bundle: nil), forCellReuseIdentifier: "infoCell")
         tableView.dataSource = self
-        tableView.delegate = self
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        if indexPath.section == 0 {
+            return "imageCell"
+        } else if indexPath.section == 1 {
+            return "infoCell"
+        }
+        return "episodeCell"
     }
     
     func loadCharacter(ID: String) {
@@ -87,15 +96,22 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         case 0:
             //Character image cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! ImageCell
+            cell.imageCellView.showAnimatedSkeleton()
+            
             if let image = character.image {
+                cell.imageCellView.hideSkeleton()
                 cell.imageCellView.sd_setImage(with: URL(string: image))
+                
             }
+            
             return cell
             
         case 1:
             //cell of Info section
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfoCell
+            cell.infoRightLabel.showAnimatedSkeleton()
             if !infoSection.isEmpty {
+                cell.infoRightLabel.hideSkeleton()
                 cell.infoLeftLabel.text = Array(infoSection)[indexPath.row].key
                 cell.infoRightLabel.text = Array(infoSection)[indexPath.row].value
             }
@@ -103,7 +119,9 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         case 2:
             //cell of location section
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfoCell
+            cell.infoRightLabel.showAnimatedSkeleton()
             if !locationSection.isEmpty {
+                cell.infoRightLabel.hideSkeleton()
                 cell.infoLeftLabel.text = Array(locationSection)[indexPath.row].key
                 cell.infoRightLabel.text = Array(locationSection)[indexPath.row].value
             }
@@ -112,7 +130,9 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
             //cell of episode section
             let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath)
             
+            cell.showAnimatedSkeleton()
             if !character.episodes.isEmpty {
+                cell.hideSkeleton()
                 let episodeName = character.episodes[indexPath.row].name
                 let episodeInfo = character.episodes[indexPath.row].info
                 let episodeDate = character.episodes[indexPath.row].date
