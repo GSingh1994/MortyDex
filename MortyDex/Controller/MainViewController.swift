@@ -44,6 +44,7 @@ class MainViewController: UICollectionViewController, UITextFieldDelegate {
             guard let data = try? result.get().data else { return }
             
             if let charactersData = data.characters?.results {
+                self.searchResults = []
                 for char in charactersData {
                     let character = Character()
                     character.id = char?.id
