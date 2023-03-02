@@ -23,6 +23,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, SkeletonTabl
         loadCharacter(ID: character.id!)
         tableView.register(UINib(nibName: "InfoCell", bundle: nil), forCellReuseIdentifier: "infoCell")
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
