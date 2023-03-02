@@ -8,7 +8,7 @@
 import UIKit
 
 class EpisodesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var allEpisodes: [Episode] = []
@@ -41,10 +41,10 @@ class EpisodesViewController: UIViewController, UITableViewDelegate, UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "episodeToDetails" {
             if let indexPath = tableView.indexPathForSelectedRow {
-//                let VC = segue.destination as! EpisodeDetailsViewController
+                let VC = segue.destination as! EpisodeDetailsViewController
                 
                 //pass selected location
-//                VC.currentEpisode = allEpisodes[indexPath.row]
+                VC.episode.id = allEpisodes[indexPath.row].id
             }
         }
     }

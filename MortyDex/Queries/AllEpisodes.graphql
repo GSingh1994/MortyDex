@@ -5,11 +5,6 @@ query AllEpisodes($page: Int) {
       episode
       name
       air_date
-      characters {
-        id
-        image
-        name
-      }
     }
   }
 }
