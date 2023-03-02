@@ -11,6 +11,7 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
     var allLocations: [Location] = []
+    var page: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,14 +39,14 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     //load data on scroll
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
-//
-//            let vc = self.navigationController?.tabBarController as! TabBarController
-//            vc.loadLocations(pageNum: 1)
-//            tableView.reloadData()
-//        }
-//    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
+            let vc = self.navigationController?.tabBarController as! TabBarController
+            page += 1
+            vc.loadLocations(page: page)
+            tableView.reloadData()
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "locationToDetails" {

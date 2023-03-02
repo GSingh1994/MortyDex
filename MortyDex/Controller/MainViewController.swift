@@ -11,6 +11,7 @@ import SDWebImage
 class MainViewController: UICollectionViewController {
     var allCharacters: [Character] = []
     var characterEpisodes: [Episode] = []
+    var page: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,16 @@ class MainViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "mainToDetails", sender: self)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if indexPath.item == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
+            let vc = self.navigationController?.tabBarController as! TabBarController
+            page += 1
+            vc.loadCharacters(page: page)
+            collectionView.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

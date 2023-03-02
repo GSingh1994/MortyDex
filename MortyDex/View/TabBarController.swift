@@ -11,18 +11,22 @@ import Apollo
 class TabBarController: UITabBarController {
     let apolloClient = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql")!)
     
+    var allCharacters: [Character] = []
+    var allLocations: [Location] = []
+    var allEpisodes: [Episode] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadCharacters()
-        loadEpisodes()
-        loadLocations()
+        loadCharacters(page: 1)
+        loadEpisodes(page: 1)
+        loadLocations(page: 1)
     }
     
-    func loadCharacters() {
-        apolloClient.fetch(query: MortySchema.AllCharactersQuery(page: 1)) { result in
+    func loadCharacters(page: Int) {
+        apolloClient.fetch(query: MortySchema.AllCharactersQuery(page: GraphQLNullable<Int>(integerLiteral: page))) { result in
             guard let data = try? result.get().data else { return }
             
-            var allCharacters: [Character] = []
+ 
             
             if let charactersData = data.characters?.results {
                 for char in charactersData {
@@ -30,23 +34,21 @@ class TabBarController: UITabBarController {
                     character.id = char?.id
                     character.name = char?.name
                     character.image = char?.image
-                    allCharacters.append(character)
+                    self.allCharacters.append(character)
                 }
             }
             
             //send character data to MainVC
             let nav = self.viewControllers![0] as! UINavigationController
             let mainVC = nav.topViewController as! MainViewController
-            mainVC.allCharacters = allCharacters
+            mainVC.allCharacters = self.allCharacters
             mainVC.collectionView.reloadData()
         }
         
     }
-    func loadEpisodes() {
-        apolloClient.fetch(query: MortySchema.AllEpisodesQuery(page: 1)) { result in
+    func loadEpisodes(page: Int) {
+        apolloClient.fetch(query: MortySchema.AllEpisodesQuery(page: GraphQLNullable<Int>(integerLiteral: page))) { result in
             guard let data = try? result.get().data else { return }
-            
-            var allEpisodes: [Episode] = []
             
             if let episodeData = data.episodes?.results {
                 for epi in episodeData {
@@ -55,21 +57,19 @@ class TabBarController: UITabBarController {
                     episode.name = epi?.name
                     episode.info = epi?.episode
                     episode.date = epi?.air_date
-                    allEpisodes.append(episode)
+                    self.allEpisodes.append(episode)
                 }
             }
             //send episode data to episodeVC
             let nav = self.viewControllers![2] as! UINavigationController
             let episodesVC = nav.topViewController as! EpisodesViewController
-            episodesVC.allEpisodes = allEpisodes
+            episodesVC.allEpisodes = self.allEpisodes
         }
     }
     
-    func loadLocations() {
-        apolloClient.fetch(query: MortySchema.AllLocationsQuery(page: 1)) { result in
+    func loadLocations(page: Int) {
+        apolloClient.fetch(query: MortySchema.AllLocationsQuery(page: GraphQLNullable<Int>(integerLiteral: page))) { result in
             guard let data = try? result.get().data else { return }
-            
-            var allLocations: [Location] = []
             
             if let locationData = data.locations?.results {
                 for loc in locationData {
@@ -78,13 +78,13 @@ class TabBarController: UITabBarController {
                     location.name = loc?.name
                     location.dimension = loc?.dimension
                     location.type = loc?.type
-                    allLocations.append(location)
+                    self.allLocations.append(location)
                 }
                 
                 //send location data to locationVC
                 let nav = self.viewControllers![1] as! UINavigationController
                 let locationsVC = nav.topViewController as! LocationsViewController
-                locationsVC.allLocations = allLocations
+                locationsVC.allLocations = self.allLocations
             }
         }
     }
