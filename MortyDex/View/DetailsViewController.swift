@@ -111,8 +111,10 @@ class DetailsViewController: UIViewController, UITableViewDelegate, SkeletonTabl
             //cell of Info section
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfoCell
             cell.infoRightLabel.showAnimatedSkeleton()
+            cell.infoLeftLabel.showAnimatedSkeleton()
             if !infoSection.isEmpty {
                 cell.infoRightLabel.hideSkeleton()
+                cell.infoLeftLabel.hideSkeleton()
                 cell.infoLeftLabel.text = Array(infoSection)[indexPath.row].key
                 cell.infoRightLabel.text = Array(infoSection)[indexPath.row].value
             }
@@ -121,8 +123,10 @@ class DetailsViewController: UIViewController, UITableViewDelegate, SkeletonTabl
             //cell of location section
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfoCell
             cell.infoRightLabel.showAnimatedSkeleton()
+            cell.infoLeftLabel.showAnimatedSkeleton()
             if !locationSection.isEmpty {
                 cell.infoRightLabel.hideSkeleton()
+                cell.infoLeftLabel.hideSkeleton()
                 cell.infoLeftLabel.text = Array(locationSection)[indexPath.row].key
                 cell.infoRightLabel.text = Array(locationSection)[indexPath.row].value
             }

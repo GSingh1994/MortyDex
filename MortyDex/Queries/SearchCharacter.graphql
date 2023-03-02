@@ -1,5 +1,5 @@
-query SearchCharacter($filter: FilterCharacter) {
-  characters(filter: $filter) {
+query SearchCharacter($name: String) {
+  characters(filter: {name: $name}) {
     results {
       id
       name

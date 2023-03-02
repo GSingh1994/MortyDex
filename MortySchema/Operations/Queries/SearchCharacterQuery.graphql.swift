@@ -9,8 +9,8 @@ public extension MortySchema {
     public static let document: ApolloAPI.DocumentType = .notPersisted(
       definition: .init(
         #"""
-        query SearchCharacter($filter: FilterCharacter) {
-          characters(filter: $filter) {
+        query SearchCharacter($name: String) {
+          characters(filter: {name: $name}) {
             __typename
             results {
               __typename
@@ -23,13 +23,13 @@ public extension MortySchema {
         """#
       ))
 
-    public var filter: GraphQLNullable<FilterCharacter>
+    public var name: GraphQLNullable<String>
 
-    public init(filter: GraphQLNullable<FilterCharacter>) {
-      self.filter = filter
+    public init(name: GraphQLNullable<String>) {
+      self.name = name
     }
 
-    public var __variables: Variables? { ["filter": filter] }
+    public var __variables: Variables? { ["name": name] }
 
     public struct Data: MortySchema.SelectionSet {
       public let __data: DataDict
@@ -37,7 +37,7 @@ public extension MortySchema {
 
       public static var __parentType: ApolloAPI.ParentType { MortySchema.Objects.Query }
       public static var __selections: [ApolloAPI.Selection] { [
-        .field("characters", Characters?.self, arguments: ["filter": .variable("filter")]),
+        .field("characters", Characters?.self, arguments: ["filter": ["name": .variable("name")]]),
       ] }
 
       /// Get the list of all characters

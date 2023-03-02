@@ -12,11 +12,11 @@ import Apollo
 
 class MainViewController: UICollectionViewController, UITextFieldDelegate {
     let apolloClient = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql")!)
-
+    
     @IBOutlet weak var searchField: UITextField!
     
     var allCharacters: [Character] = []
-    var characterEpisodes: [Episode] = []
+    var searchResults: [Character] = []
     var page: Int = 1
     
     override func viewDidLoad() {
@@ -25,17 +25,36 @@ class MainViewController: UICollectionViewController, UITextFieldDelegate {
     }
     
     @IBAction func searchPressed(_ sender: UIBarButtonItem) {
-        searchCharacter(input: searchField.text)
+        if !searchField.text!.isEmpty {
+            searchCharacter(input: searchField.text)
+        }
+        searchField.text = ""
+        page = 0
         searchField.endEditing(true)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchField.endEditing(true)
-        return true
+    @IBAction func homePressed(_ sender: UIBarButtonItem) {
+        searchResults = []
+        allCharacters = []
+        fetchPage()
     }
     
     func searchCharacter(input: String?) {
-//        apolloClient.fetch(query: MortySchema.SearchCharacterQuery(filter: "filter"))
+        apolloClient.fetch(query: MortySchema.SearchCharacterQuery(name: GraphQLNullable<String>(stringLiteral: input!))) { result in
+            guard let data = try? result.get().data else { return }
+            
+            if let charactersData = data.characters?.results {
+                for char in charactersData {
+                    let character = Character()
+                    character.id = char?.id
+                    character.name = char?.name
+                    character.image = char?.image
+                    self.searchResults.append(character)
+                }
+                self.allCharacters = self.searchResults
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -63,11 +82,17 @@ class MainViewController: UICollectionViewController, UITextFieldDelegate {
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         if indexPath.item == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
-            let vc = self.navigationController?.tabBarController as! TabBarController
-            page += 1
-            vc.loadCharacters(page: page)
-            collectionView.reloadData()
+            if page > 0{
+                fetchPage()
+            }
         }
+    }
+    
+    func fetchPage() {
+        let vc = self.navigationController?.tabBarController as! TabBarController
+        page += 1
+        vc.loadCharacters(page: page)
+        collectionView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
