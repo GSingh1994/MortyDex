@@ -44,6 +44,8 @@
 		549BD07B29AD0C6100DF0C4A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549BD07A29AD0C6100DF0C4A /* Character.swift */; };
 		54AF496129AD941200B20882 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AF495F29AD941200B20882 /* InfoCell.swift */; };
 		54AF496229AD941200B20882 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AF496029AD941200B20882 /* InfoCell.xib */; };
+		54C0B59D29B9070A00EFB153 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 54C0B59C29B9070A00EFB153 /* Quick */; };
+		54C0B5A029B9072000EFB153 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 54C0B59F29B9072000EFB153 /* Nimble */; };
 		54D27AEE29ABF02600C0965E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D27AED29ABF02600C0965E /* AppDelegate.swift */; };
 		54D27AF029ABF02600C0965E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D27AEF29ABF02600C0965E /* SceneDelegate.swift */; };
 		54D27AF229ABF02600C0965E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D27AF129ABF02600C0965E /* MainViewController.swift */; };
@@ -122,8 +124,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54C0B5A029B9072000EFB153 /* Nimble in Frameworks */,
 				540DFABC29AD24BB002BD4F4 /* SDWebImage in Frameworks */,
 				54734F5A29B04A510034560A /* SkeletonView in Frameworks */,
+				54C0B59D29B9070A00EFB153 /* Quick in Frameworks */,
 				54D27B0329ABF0BF00C0965E /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +301,8 @@
 				54D27B0229ABF0BF00C0965E /* Apollo */,
 				540DFABB29AD24BB002BD4F4 /* SDWebImage */,
 				54734F5929B04A510034560A /* SkeletonView */,
+				54C0B59C29B9070A00EFB153 /* Quick */,
+				54C0B59F29B9072000EFB153 /* Nimble */,
 			);
 			productName = MortyDex;
 			productReference = 54D27AEA29ABF02600C0965E /* MortyDex.app */;
@@ -330,6 +336,8 @@
 				54D27B0129ABF0BF00C0965E /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				540DFABA29AD24BB002BD4F4 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				54734F5829B04A510034560A /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				54C0B59B29B9070A00EFB153 /* XCRemoteSwiftPackageReference "Quick" */,
+				54C0B59E29B9072000EFB153 /* XCRemoteSwiftPackageReference "Nimble" */,
 			);
 			productRefGroup = 54D27AEB29ABF02600C0965E /* Products */;
 			projectDirPath = "";
@@ -640,6 +648,22 @@
 				kind = branch;
 			};
 		};
+		54C0B59B29B9070A00EFB153 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		54C0B59E29B9072000EFB153 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		54D27B0129ABF0BF00C0965E /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
@@ -660,6 +684,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 54734F5829B04A510034560A /* XCRemoteSwiftPackageReference "SkeletonView" */;
 			productName = SkeletonView;
+		};
+		54C0B59C29B9070A00EFB153 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54C0B59B29B9070A00EFB153 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		54C0B59F29B9072000EFB153 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54C0B59E29B9072000EFB153 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
 		};
 		54D27B0229ABF0BF00C0965E /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -10,7 +10,7 @@ import Apollo
 
 class TabBarController: UITabBarController {
     let apolloClient = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql")!)
-    
+
     var allCharacters: [Character] = []
     var allLocations: [Location] = []
     var allEpisodes: [Episode] = []
